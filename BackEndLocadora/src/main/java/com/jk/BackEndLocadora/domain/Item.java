@@ -1,6 +1,7 @@
 package com.jk.BackEndLocadora.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jk.BackEndLocadora.domain.enums.StatusItem;
 import com.jk.BackEndLocadora.domain.enums.TipoItem;
 import jakarta.persistence.*;
@@ -26,6 +27,7 @@ public class Item {
     @Column(name = "data_aquisicao")
     private LocalDateTime dtAquisicao;
 
+    @JsonIgnoreProperties(value = "items")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_titulo", referencedColumnName = "id", nullable = false)
     private Titulo titulo;

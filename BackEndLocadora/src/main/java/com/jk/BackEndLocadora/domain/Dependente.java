@@ -35,6 +35,7 @@ public class Dependente implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime nascimento;
 
+    @JsonIgnoreProperties(value = "dependentes")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_cliente", referencedColumnName = "id", nullable = false)
     private Cliente cliente;
