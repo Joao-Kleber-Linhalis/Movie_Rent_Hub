@@ -1,6 +1,10 @@
-package com.jk.BackEndLocadora.domain;
+package com.jk.BackEndLocadora.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.jk.BackEndLocadora.domain.Ator;
+import com.jk.BackEndLocadora.domain.Classe;
+import com.jk.BackEndLocadora.domain.Diretor;
+import com.jk.BackEndLocadora.domain.Item;
 import com.jk.BackEndLocadora.domain.enums.CategoriaFilme;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -12,12 +16,8 @@ import java.util.List;
 import java.util.Set;
 
 @Data
-@Entity
-@Table(name = "titulo")
-public class Titulo implements Serializable {
+public class TituloDTO implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull(message = "O campo NOME é requerido")
@@ -28,31 +28,19 @@ public class Titulo implements Serializable {
 
     @NotNull(message = "O campo SINOPSE é requerido")
     private String sinopse;
-    @Lob
+
     private Byte[] capa;
 
     @NotNull(message = "O campo CATEGORIA precisa de pelo menos 1 (uma) categoria")
-    @ElementCollection(targetClass = CategoriaFilme.class)
-    @Enumerated(EnumType.STRING)
-    @Column(name = "categoria_filme")
     private Set<CategoriaFilme> categorias;
 
     @JsonIgnoreProperties(value = "titulo")
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "titulo",cascade = CascadeType.ALL)
     private List<Item> items = new ArrayList<>();
-
     @NotNull(message = "O campo DIRETOR é requerido")
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_diretor", referencedColumnName = "id", nullable = false)
-    private Diretor diretor;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_classe", referencedColumnName = "id", nullable = false)
+    private DiretorDTO diretor;
     @NotNull(message = "O campo CLASSE é requerido")
-    private Classe classe;
+    private ClasseDTO classe;
 
-    @ManyToMany
-    @JoinTable(name = "filme_atores", joinColumns = {@JoinColumn(name = "filme_id")}, inverseJoinColumns = {@JoinColumn(name = "ator_id")})
-    private List<Ator> atores;
+    private List<AtorDTO> atores;
     private Boolean ativo = true;
 }

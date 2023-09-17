@@ -1,7 +1,8 @@
-package com.jk.BackEndLocadora.domain;
+package com.jk.BackEndLocadora.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.jk.BackEndLocadora.domain.Titulo;
 import com.jk.BackEndLocadora.domain.enums.StatusItem;
 import com.jk.BackEndLocadora.domain.enums.TipoItem;
 import jakarta.persistence.*;
@@ -13,31 +14,19 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-@Entity
-@Table(name = "item")
-public class Item implements Serializable {
+public class ItemDTO implements Serializable {
 
-    @Id
-    @Column(name = "numero_serie")
     @NotNull(message = "O campo NUMERO DE SÉRIE é requerido")
     private Long numSerie;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @NotNull(message = "O campo DATA DE AQUISIÇÃO DE SÉRIE é requerido")
-    @Column(name = "data_aquisicao")
     private LocalDateTime dtAquisicao;
 
     @JsonIgnoreProperties(value = "items")
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_titulo", referencedColumnName = "id", nullable = false)
-    private Titulo titulo;
-    @Column(name = "tipo_item")
-    @Enumerated(EnumType.STRING)
+    private TituloDTO titulo;
     private TipoItem tipoItem;
-
-    @Column(name = "status_item")
-    @Enumerated(EnumType.STRING)
-    private StatusItem statusItem = StatusItem.DISPONIVEL;
+    private StatusItem statusItem;
     private Boolean ativo = true;
 }
