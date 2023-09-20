@@ -38,8 +38,10 @@ public class AtorService {
 
     public AtorDTO create(AtorDTO atorDTO){
         atorDTO.setId(null);
-        if (atorRepository.findByNome(atorDTO.getNome()).isPresent()){
-            throw new IllegalArgumentException("Nome de Ator já cadastrado");
+        Optional<Ator> ator = atorRepository.findByNome(atorDTO.getNome());
+        if (ator.isPresent()){
+            String status = ator.get().getAtivo() ? "Ativo" : "Inativo";
+            throw new IllegalArgumentException("Nome de Ator já cadastrado, Id: " + ator.get().getId() + ",Status: " + status);
         }
         //Ator ator = atorRepository.save(modelMapper.map(atorDTO,Ator.class));
         return modelMapper.map(atorRepository.save(modelMapper.map(atorDTO,Ator.class)),AtorDTO.class);

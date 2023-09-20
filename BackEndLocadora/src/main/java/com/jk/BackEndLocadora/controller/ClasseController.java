@@ -13,6 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @AllArgsConstructor
 @RequestMapping(value = "api/classes")
 public class ClasseController {

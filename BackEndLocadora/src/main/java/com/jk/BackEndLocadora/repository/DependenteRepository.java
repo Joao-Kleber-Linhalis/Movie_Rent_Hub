@@ -15,6 +15,6 @@ public interface DependenteRepository extends JpaRepository<Dependente,Long> {
 
     Optional<Dependente> findByIdAndAtivo(Long id, boolean ativo);
 
-    @Query("SELECT t FROM Dependente t WHERE t.ativo = :status")
+    @Query("SELECT t FROM Dependente t WHERE t.ativo = :status ORDER BY t.id")
     List<Dependente> findByStatus(boolean status);
 }

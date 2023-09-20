@@ -16,6 +16,6 @@ public interface TituloRepository extends JpaRepository<Titulo,Long> {
 
     Optional<Titulo> findByIdAndAtivo(Long id, boolean ativo);
 
-    @Query("SELECT t FROM Titulo t WHERE t.ativo = :status")
+    @Query("SELECT t FROM Titulo t WHERE t.ativo = :status ORDER BY t.id")
     List<Titulo> findByStatus(boolean status);
 }

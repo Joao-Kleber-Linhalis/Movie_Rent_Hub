@@ -13,7 +13,7 @@ public interface AtorRepository extends JpaRepository<Ator,Long> {
 
     Optional<Ator> findByIdAndAtivo(Long id, boolean ativo);
 
-    @Query("SELECT t FROM Ator t WHERE t.ativo = :status")
+    @Query("SELECT t FROM Ator t WHERE t.ativo = :status ORDER BY t.id")
     List<Ator> findByStatus(boolean status);
 
     Optional<Ator> findByNome(String nome);

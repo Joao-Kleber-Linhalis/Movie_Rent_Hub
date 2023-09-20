@@ -14,7 +14,7 @@ public interface ClasseRepository extends JpaRepository<Classe,Long> {
 
     Optional<Classe> findByIdAndAtivo(Long id, boolean ativo);
 
-    @Query("SELECT t FROM Classe t WHERE t.ativo = :status")
+    @Query("SELECT t FROM Classe t WHERE t.ativo = :status ORDER BY t.id")
     List<Classe> findByStatus(boolean status);
 
     Optional<Classe> findByNome(String nome);

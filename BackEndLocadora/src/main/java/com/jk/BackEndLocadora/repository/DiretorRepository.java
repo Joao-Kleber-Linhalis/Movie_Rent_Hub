@@ -16,7 +16,7 @@ public interface DiretorRepository extends JpaRepository<Diretor,Long> {
 
     Optional<Diretor> findByIdAndAtivo(Long id, boolean ativo);
 
-    @Query("SELECT t FROM Diretor t WHERE t.ativo = :status")
+    @Query("SELECT t FROM Diretor t WHERE t.ativo = :status ORDER BY t.id")
     List<Diretor> findByStatus(boolean status);
 
     Optional<Diretor> findByNome(String nome);

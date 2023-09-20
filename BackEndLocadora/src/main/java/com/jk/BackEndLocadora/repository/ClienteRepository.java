@@ -13,6 +13,6 @@ import java.util.Optional;
 public interface ClienteRepository extends JpaRepository<Cliente,Long> {
     Optional<Cliente> findByIdAndAtivo(Long id, boolean ativo);
 
-    @Query("SELECT t FROM Cliente t WHERE t.ativo = :status")
+    @Query("SELECT t FROM Cliente t WHERE t.ativo = :status ORDER BY t.id")
     List<Cliente> findByStatus(boolean status);
 }
