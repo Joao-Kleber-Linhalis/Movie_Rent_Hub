@@ -31,4 +31,12 @@ export class DiretorService {
   update(diretor: Diretor): Observable<Diretor>{
     return this.http.put<Diretor>(`${API_CONFIG.baseUrl}/diretores/${diretor.id}`,diretor)
   }
+
+  disable(id: any): Observable<Diretor> {
+    return this.http.put<Diretor>(`${API_CONFIG.baseUrl}/diretores/desabilitar/${id}`,null)
+  }
+
+  able(id: any): Observable<Diretor> {
+    return this.http.put<Diretor>(`${API_CONFIG.baseUrl}/diretores/habilitar/${id}`,null)
+  }
 }

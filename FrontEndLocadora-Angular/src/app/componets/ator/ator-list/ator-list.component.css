@@ -85,3 +85,7 @@ h1 {
 .delete{
     color: red;
 }
+
+.done{
+    color: green
+}

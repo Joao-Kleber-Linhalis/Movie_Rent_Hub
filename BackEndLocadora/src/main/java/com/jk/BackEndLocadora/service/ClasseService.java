@@ -2,6 +2,7 @@ package com.jk.BackEndLocadora.service;
 
 import com.jk.BackEndLocadora.domain.Classe;
 import com.jk.BackEndLocadora.domain.Classe;
+import com.jk.BackEndLocadora.domain.dto.AtorDTO;
 import com.jk.BackEndLocadora.domain.dto.ClasseDTO;
 import com.jk.BackEndLocadora.domain.dto.ClasseDTO;
 import com.jk.BackEndLocadora.exceptions.ObjectNotFoundException;
@@ -28,7 +29,7 @@ public class ClasseService {
     ModelMapper modelMapper = new ModelMapper();
 
     public ClasseDTO findById(Long id){
-        Optional<Classe> classe = classeRepository.findByIdAndAtivo(id,true);
+        Optional<Classe> classe = classeRepository.findById(id);
         return converterOptionalClasseParaDTO(classe).orElseThrow(() ->new ObjectNotFoundException(findByIdDisable(id) + " Id: " + id));
     }
 
@@ -67,6 +68,12 @@ public class ClasseService {
         return modelMapper.map(classeRepository.save(classe), ClasseDTO.class);
     }
 
+    public ClasseDTO able(Long id) {
+        Classe classe = modelMapper.map(findById(id),Classe.class);
+        classe.setAtivo(true);
+        return modelMapper.map(classeRepository.save(classe), ClasseDTO.class);
+    }
+
 
     private Optional<ClasseDTO> converterOptionalClasseParaDTO(Optional<Classe> optionalClasse) {
         return optionalClasse.map(classe -> modelMapper.map(classe, ClasseDTO.class));
@@ -86,4 +93,6 @@ public class ClasseService {
             return "Objeto não encontrado";
         }
     }
+
+
 }

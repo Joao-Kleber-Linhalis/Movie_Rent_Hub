@@ -1,5 +1,6 @@
 package com.jk.BackEndLocadora.controller;
 
+import com.jk.BackEndLocadora.domain.dto.AtorDTO;
 import com.jk.BackEndLocadora.domain.dto.ClasseDTO;
 import com.jk.BackEndLocadora.service.ClasseService;
 import lombok.AllArgsConstructor;
@@ -51,5 +52,10 @@ public class ClasseController {
     @PutMapping(value = "/desabilitar/{id}")
     public ResponseEntity<ClasseDTO> desabilitar(@PathVariable Long id){
         return ResponseEntity.ok().body(classeService.disable(id));
+    }
+
+    @PutMapping(value = "/habilitar/{id}")
+    public ResponseEntity<ClasseDTO> habilitar(@PathVariable Long id){
+        return ResponseEntity.ok().body(classeService.able(id));
     }
 }

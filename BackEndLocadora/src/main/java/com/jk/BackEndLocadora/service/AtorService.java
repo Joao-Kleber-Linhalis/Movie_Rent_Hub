@@ -27,7 +27,7 @@ public class AtorService {
 
 
     public AtorDTO findById(Long id) {
-        Optional<Ator> ator = atorRepository.findByIdAndAtivo(id,true);
+        Optional<Ator> ator = atorRepository.findById(id);
         return converterOptionalAtorParaDTO(ator).orElseThrow(() -> new ObjectNotFoundException(findByIdDisable(id) + " Id: " + id));
     }
 
@@ -70,6 +70,12 @@ public class AtorService {
         return modelMapper.map(atorRepository.save(ator),AtorDTO.class);
     }
 
+    public AtorDTO able(Long id) {
+        Ator ator = modelMapper.map(findById(id),Ator.class);
+        ator.setAtivo(true);
+        return modelMapper.map(atorRepository.save(ator),AtorDTO.class);
+    }
+
     private Optional<AtorDTO> converterOptionalAtorParaDTO(Optional<Ator> optionalAtor) {
         return optionalAtor.map(ator -> modelMapper.map(ator, AtorDTO.class));
     }
@@ -88,4 +94,6 @@ public class AtorService {
             return "Objeto não encontrado";
         }
     }
+
+
 }

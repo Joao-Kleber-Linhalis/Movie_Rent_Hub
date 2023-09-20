@@ -38,4 +38,8 @@ export class AtorService {
   disable(id: any): Observable<Ator> {
     return this.http.put<Ator>(`${API_CONFIG.baseUrl}/atores/desabilitar/${id}`,null)
   }
+
+  able(id: any): Observable<Ator> {
+    return this.http.put<Ator>(`${API_CONFIG.baseUrl}/atores/habilitar/${id}`,null)
+  }
 }

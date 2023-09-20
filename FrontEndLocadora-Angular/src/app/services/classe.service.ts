@@ -31,4 +31,12 @@ export class ClasseService {
   update(classe: Classe): Observable<Classe>{
     return this.http.put<Classe>(`${API_CONFIG.baseUrl}/classes/${classe.id}`,classe)
   }
+
+  disable(id: any): Observable<Classe> {
+    return this.http.put<Classe>(`${API_CONFIG.baseUrl}/classes/desabilitar/${id}`,null)
+  }
+
+  able(id: any): Observable<Classe> {
+    return this.http.put<Classe>(`${API_CONFIG.baseUrl}/classes/habilitar/${id}`,null)
+  }
 }

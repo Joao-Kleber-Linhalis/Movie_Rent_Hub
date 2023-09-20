@@ -41,6 +41,9 @@ import { DiretorCreateComponent } from './componets/diretor/diretor-create/diret
 import { AtorUpdateComponent } from './componets/ator/ator-update/ator-update.component';
 import { DiretorUpdateComponent } from './componets/diretor/diretor-update/diretor-update.component';
 import { ClasseUpdateComponent } from './componets/classe/classe-update/classe-update.component';
+import { AtorStatusComponent } from './componets/ator/ator-status/ator-status.component';
+import { DiretorStatusComponent } from './componets/diretor/diretor-status/diretor-status.component';
+import { ClasseStatusComponent } from './componets/classe/classe-status/classe-status.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,10 @@ import { ClasseUpdateComponent } from './componets/classe/classe-update/classe-u
     DiretorCreateComponent,
     AtorUpdateComponent,
     DiretorUpdateComponent,
-    ClasseUpdateComponent
+    ClasseUpdateComponent,
+    AtorStatusComponent,
+    DiretorStatusComponent,
+    ClasseStatusComponent
   ],
   imports: [
     BrowserModule,

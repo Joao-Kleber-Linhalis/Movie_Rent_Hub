@@ -52,4 +52,9 @@ public class AtorController {
     public ResponseEntity<AtorDTO> desabilitar(@PathVariable Long id){
         return ResponseEntity.ok().body(atorService.disable(id));
     }
+
+    @PutMapping(value = "/habilitar/{id}")
+    public ResponseEntity<AtorDTO> habilitar(@PathVariable Long id){
+        return ResponseEntity.ok().body(atorService.able(id));
+    }
 }

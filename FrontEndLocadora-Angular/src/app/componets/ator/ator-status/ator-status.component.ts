@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Ator } from 'src/app/models/ator';
 import { AtorService } from 'src/app/services/ator.service';
 
 @Component({
-  selector: 'app-ator-update',
-  templateUrl: './ator-update.component.html',
-  styleUrls: ['./ator-update.component.css']
+  selector: 'app-ator-status',
+  templateUrl: './ator-status.component.html',
+  styleUrls: ['./ator-status.component.css']
 })
-export class AtorUpdateComponent implements OnInit {
-  
+export class AtorStatusComponent implements OnInit {
+
   ator: Ator = {
     id: '',
     nome: '',
@@ -32,17 +32,17 @@ export class AtorUpdateComponent implements OnInit {
     this.findById();
   }
 
-  findById(): void{
+  findById(): void {
     this.service.findById(this.ator.id).subscribe(
-      resposta =>{
+      resposta => {
         this.ator = resposta;
       }
     )
   }
 
-  update(): void {
-    this.service.update(this.ator).subscribe(resposta => {
-      this.toast.success('Ator Atualizado com sucesso', 'Atualização');
+  able(): void{
+    this.service.able(this.ator.id).subscribe(resposta => {
+      this.toast.success('Ator Ativado com sucesso', 'Ativar');
       this.router.navigate(["atores"])
     }, ex => {
       console.log(ex);
@@ -56,7 +56,20 @@ export class AtorUpdateComponent implements OnInit {
     })
   }
 
-  validarCampos(): boolean {
-    return this.nome.valid;
+  disable(): void{
+    this.service.disable(this.ator.id).subscribe(resposta => {
+      this.toast.success('Ator Desativado com sucesso', 'Desativar');
+      this.router.navigate(["atores"])
+    }, ex => {
+      console.log(ex);
+      if (ex.error.errors) {
+        ex.error.errors.array.forEach(element => {
+          this.toast.error(element.message);
+        })
+      } else {
+        this.toast.error(ex.error.message);
+      }
+    })
   }
+
 }

@@ -1,5 +1,6 @@
 package com.jk.BackEndLocadora.controller;
 
+import com.jk.BackEndLocadora.domain.dto.ClasseDTO;
 import com.jk.BackEndLocadora.domain.dto.DiretorDTO;
 import com.jk.BackEndLocadora.service.DiretorService;
 import lombok.AllArgsConstructor;
@@ -51,6 +52,11 @@ public class DiretorController {
     @PutMapping(value = "/desabilitar/{id}")
     public ResponseEntity<DiretorDTO> desabilitar(@PathVariable Long id) {
         return ResponseEntity.ok().body(diretorService.disable(id));
+    }
+
+    @PutMapping(value = "/habilitar/{id}")
+    public ResponseEntity<DiretorDTO> habilitar(@PathVariable Long id){
+        return ResponseEntity.ok().body(diretorService.able(id));
     }
 
 }

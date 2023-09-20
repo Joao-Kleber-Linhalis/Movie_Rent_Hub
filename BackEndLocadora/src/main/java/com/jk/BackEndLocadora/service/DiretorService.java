@@ -27,7 +27,7 @@ public class DiretorService {
     ModelMapper modelMapper = new ModelMapper();
 
     public DiretorDTO findById(Long id) {
-        Optional<Diretor> diretor = diretorRepository.findByIdAndAtivo(id, true);
+        Optional<Diretor> diretor = diretorRepository.findById(id);
         return converterOptionalDiretorParaDTO(diretor).orElseThrow(() -> new ObjectNotFoundException(findByIdDisable(id) + " Id:" + id));
     }
 
@@ -67,6 +67,13 @@ public class DiretorService {
         return modelMapper.map(diretorRepository.save(diretor), DiretorDTO.class);
     }
 
+    public DiretorDTO able(Long id) {
+        Diretor diretor = modelMapper.map(findById(id), Diretor.class);
+        diretor.setAtivo(true);
+        return modelMapper.map(diretorRepository.save(diretor), DiretorDTO.class);
+    }
+
+
 
     private Optional<DiretorDTO> converterOptionalDiretorParaDTO(Optional<Diretor> optionalDiretor) {
         return optionalDiretor.map(diretor -> modelMapper.map(diretor, DiretorDTO.class));
@@ -85,4 +92,5 @@ public class DiretorService {
             return "Objeto não encontrado";
         }
     }
+
 }
