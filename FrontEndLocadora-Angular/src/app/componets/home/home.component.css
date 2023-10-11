@@ -6,4 +6,7 @@
 
 img{
     height: 13rem;
+    margin: 0 auto; /* Centraliza horizontalmente a imagem */
+    display: block;
+    margin-bottom: 1rem;
 }

@@ -1,0 +1,59 @@
+.container{
+    width: 45%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.fullWidth{
+    width: 100%;
+}
+h1, img{
+    text-align: center;
+}
+
+img{
+    height: 15rem;
+}
+
+.status-prioridade{
+    display: flex;
+    justify-content: space-between;
+}
+
+.status-prioridade mat-form-field{
+    width: 49%;
+}
+
+.sinopse{
+    min-height: 6rem;
+    max-height: 10rem;
+    width: 100%;
+}
+
+button{
+    margin-top: .5rem;
+}
+
+.espacamentoCampos {
+    margin-left: 3%;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaçamento entre as caixas de seleção */
+    align-items: center; /* Alinhar verticalmente no centro, se necessário */
+  }
+  
+  /* O estilo abaixo é opcional e pode ser ajustado conforme necessário */
+  .mat-checkbox {
+    flex: 1; /* Distribuir igualmente o espaço disponível */
+    white-space: nowrap; /* Impedir que o texto quebre em várias linhas */
+    overflow: hidden; /* Ocultar o texto que não cabe no espaço disponível */
+    text-overflow: ellipsis; /* Mostrar reticências (...) para texto truncado */
+  }
+
+  mat-icon{
+    opacity: .67;
+}

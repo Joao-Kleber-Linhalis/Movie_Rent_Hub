@@ -44,6 +44,10 @@ import { ClasseUpdateComponent } from './componets/classe/classe-update/classe-u
 import { AtorStatusComponent } from './componets/ator/ator-status/ator-status.component';
 import { DiretorStatusComponent } from './componets/diretor/diretor-status/diretor-status.component';
 import { ClasseStatusComponent } from './componets/classe/classe-status/classe-status.component';
+import { TituloCreateComponent } from './componets/titulo/titulo-create/titulo-create.component';
+import { TituloListComponent } from './componets/titulo/titulo-list/titulo-list.component';
+import { TituloUpdateComponent } from './componets/titulo/titulo-update/titulo-update.component';
+import { TituloStatusComponent } from './componets/titulo/titulo-status/titulo-status.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,11 @@ import { ClasseStatusComponent } from './componets/classe/classe-status/classe-s
     ClasseUpdateComponent,
     AtorStatusComponent,
     DiretorStatusComponent,
-    ClasseStatusComponent
+    ClasseStatusComponent,
+    TituloCreateComponent,
+    TituloListComponent,
+    TituloUpdateComponent,
+    TituloStatusComponent
   ],
   imports: [
     BrowserModule,

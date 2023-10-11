@@ -79,17 +79,12 @@ public class DiretorService {
         return optionalDiretor.map(diretor -> modelMapper.map(diretor, DiretorDTO.class));
     }
 
-    private Optional<Diretor> converterOptionalDTOparaDiretor(Optional<DiretorDTO> optionalDiretorDTO) {
-        return optionalDiretorDTO.map(diretorDTO -> modelMapper.map(diretorDTO, Diretor.class));
-    }
-
     private String findByIdDisable(Long id) {
         Optional<Diretor> diretor = diretorRepository.findByIdAndAtivo(id, false);
-        Optional<DiretorDTO> diretorDTO = converterOptionalDiretorParaDTO(diretor);
-        if (diretorDTO.isPresent()) {
-            return "Objeto atualmente desativado";
+        if (diretor.isPresent()) {
+            return "Diretor atualmente desativado";
         } else {
-            return "Objeto não encontrado";
+            return "Diretor não encontrado";
         }
     }
 

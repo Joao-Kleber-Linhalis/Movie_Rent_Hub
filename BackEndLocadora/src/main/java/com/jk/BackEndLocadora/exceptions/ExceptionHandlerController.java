@@ -40,4 +40,10 @@ public class ExceptionHandlerController {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<StandardError> handleRuntimeException(RuntimeException ex, HttpServletRequest request){
+        StandardError error = new StandardError(System.currentTimeMillis(), HttpStatus.INTERNAL_SERVER_ERROR.value(), "Erro interno do servidor", ex.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
+    }
 }

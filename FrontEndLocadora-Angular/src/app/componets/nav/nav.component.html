@@ -25,6 +25,12 @@
                 Classe
                 </div>
             </a>
+            <a mat-list-item routerLink="titulos">
+                <div class="white">
+                <i class="material-icons custom-icon">theaters</i>
+                Título
+                </div>
+            </a>
             <a mat-list-item routerLink="/">
                 <div class="white">
                 <i class="material-icons custom-icon">code</i>
@@ -41,10 +47,10 @@
     </mat-drawer>
 
     <div class="sidenav-content">
-        <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
-            <mat-icon>menu</mat-icon>
+        <button class="menu mat-elevation-z8" (click)="toggleMenu(); drawer.toggle()" mat-icon-button>
+          <mat-icon>{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
         </button>
         <router-outlet></router-outlet>
-    </div>
+      </div>
 
 </mat-drawer-container>

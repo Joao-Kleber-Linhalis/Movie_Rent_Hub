@@ -11,10 +11,14 @@
     vertical-align: sub;
 }
 
-.sidenav{
+.sidenav {
     width: 13rem;
-    background: linear-gradient(90deg, rgba(101,92,255,1) 0%, rgba(0,212,255,1) 100%);
-}
+    background-image: url('src\assets\img\navBar-image.gif');
+    background-size: cover; /* para ajustar a imagem ao tamanho da sidenav */
+    background-repeat: no-repeat; /* para evitar repetição da imagem */
+    background-position: center center; /* para centralizar a imagem */
+    /* outros estilos... */
+  }
 
 img{
     width: 100%;
@@ -36,3 +40,4 @@ img{
     color: white;
     background: linear-gradient(90deg, rgba(101,92,255,1) 0%, rgba(0,212,255,1) 100%);
 }
+

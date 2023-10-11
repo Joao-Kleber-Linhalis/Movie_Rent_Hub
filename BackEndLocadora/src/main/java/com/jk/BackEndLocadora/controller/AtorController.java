@@ -5,6 +5,7 @@ import com.jk.BackEndLocadora.service.AtorService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @AllArgsConstructor
+@Validated
 @RequestMapping(value = "api/atores")
 public class AtorController {
 

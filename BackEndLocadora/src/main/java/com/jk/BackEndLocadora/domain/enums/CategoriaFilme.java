@@ -1,11 +1,14 @@
 package com.jk.BackEndLocadora.domain.enums;
 
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
 @AllArgsConstructor
-public enum CategoriaFilme {
+public enum CategoriaFilme implements Serializable {
     ACAO("Ação"),
     COMEDIA("Comédia"),
     DRAMA("Drama"),
@@ -17,5 +20,6 @@ public enum CategoriaFilme {
     DOCUMENTARIO("Documentário"),
     OUTRA("Outra");
 
+    @Id
     private final String descricao;
 }

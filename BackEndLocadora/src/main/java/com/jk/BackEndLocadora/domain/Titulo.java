@@ -13,7 +13,9 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "titulo")
+@Table(name = "titulo", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"nome", "ano", "id_diretor"})
+})
 public class Titulo implements Serializable {
 
     @Id
@@ -21,20 +23,24 @@ public class Titulo implements Serializable {
     private Long id;
 
     @NotNull(message = "O campo NOME é requerido")
+    @Column(nullable = false)
     private String nome;
 
     @NotNull(message = "O campo ANO é requerido")
+    @Column(nullable = false)
     private Long ano;
 
     @NotNull(message = "O campo SINOPSE é requerido")
+    @Column(nullable = false)
     private String sinopse;
     @Lob
-    private Byte[] capa;
+    @Column(name = "capa", nullable = false)
+    private String capa;
 
     @NotNull(message = "O campo CATEGORIA precisa de pelo menos 1 (uma) categoria")
     @ElementCollection(targetClass = CategoriaFilme.class)
     @Enumerated(EnumType.STRING)
-    @Column(name = "categoria_filme")
+    @Column(name = "categoria_filme", nullable = false)
     private Set<CategoriaFilme> categorias;
 
     @JsonIgnoreProperties(value = "titulo")

@@ -86,12 +86,11 @@ public class AtorService {
 
     private String findByIdDisable(Long id) {
         Optional<Ator> ator = atorRepository.findByIdAndAtivo(id,false);
-        Optional<AtorDTO> atorDTO = converterOptionalAtorParaDTO(ator);
-        if (atorDTO.isPresent()){
-            return "Objeto atualmente desativado";
+        if (ator.isPresent()){
+            return "Ator atualmente desativado";
         }
         else {
-            return "Objeto não encontrado";
+            return "Ator não encontrado";
         }
     }
 

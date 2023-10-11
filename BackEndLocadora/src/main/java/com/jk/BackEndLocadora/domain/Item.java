@@ -18,25 +18,28 @@ import java.time.LocalDateTime;
 public class Item implements Serializable {
 
     @Id
-    @Column(name = "numero_serie")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "numero_serie", nullable = false)
     @NotNull(message = "O campo NUMERO DE SÉRIE é requerido")
     private Long numSerie;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @NotNull(message = "O campo DATA DE AQUISIÇÃO DE SÉRIE é requerido")
-    @Column(name = "data_aquisicao")
+    @Column(name = "data_aquisicao", nullable = false)
     private LocalDateTime dtAquisicao;
 
     @JsonIgnoreProperties(value = "items")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_titulo", referencedColumnName = "id", nullable = false)
     private Titulo titulo;
-    @Column(name = "tipo_item")
+    @Column(name = "tipo_item", nullable = false)
     @Enumerated(EnumType.STRING)
     private TipoItem tipoItem;
 
-    @Column(name = "status_item")
+    @Column(name = "status_item", nullable = false)
     @Enumerated(EnumType.STRING)
     private StatusItem statusItem = StatusItem.DISPONIVEL;
     private Boolean ativo = true;

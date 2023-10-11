@@ -1,12 +1,8 @@
 package com.jk.BackEndLocadora.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jk.BackEndLocadora.domain.Ator;
-import com.jk.BackEndLocadora.domain.Classe;
-import com.jk.BackEndLocadora.domain.Diretor;
 import com.jk.BackEndLocadora.domain.Item;
 import com.jk.BackEndLocadora.domain.enums.CategoriaFilme;
-import jakarta.persistence.*;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -29,7 +25,7 @@ public class TituloDTO implements Serializable {
     @NotNull(message = "O campo SINOPSE é requerido")
     private String sinopse;
 
-    private Byte[] capa;
+    private String capa;
 
     @NotNull(message = "O campo CATEGORIA precisa de pelo menos 1 (uma) categoria")
     private Set<CategoriaFilme> categorias;
@@ -41,6 +37,8 @@ public class TituloDTO implements Serializable {
     @NotNull(message = "O campo CLASSE é requerido")
     private ClasseDTO classe;
 
+
     private List<AtorDTO> atores;
     private Boolean ativo = true;
 }
+

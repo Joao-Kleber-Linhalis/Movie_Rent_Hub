@@ -16,6 +16,7 @@ public class Diretor implements Serializable {
     private Long id;
 
     @NotNull(message = "O campo NOME é requerido")
+    @Column(nullable = false)
     private String nome;
 
     private Boolean ativo = true;

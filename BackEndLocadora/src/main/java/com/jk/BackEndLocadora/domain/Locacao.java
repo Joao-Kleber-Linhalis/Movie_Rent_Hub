@@ -21,17 +21,17 @@ public class Locacao implements Serializable {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @Column(name = "data_locacao")
+    @Column(name = "data_locacao", nullable = false)
     private LocalDateTime dtLocacao = LocalDateTime.now();
 
     @ManyToOne(fetch = FetchType.EAGER)
     @NotNull(message = "o campo ITEM é requerido")
-    @JoinColumn(name = "numSerie_item", referencedColumnName = "numero_serie")
+    @JoinColumn(name = "numSerie_item", referencedColumnName = "numero_serie",nullable = false)
     private Item item;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @Column(name = "data_devolucao_prevista")
+    @Column(name = "data_devolucao_prevista", nullable = false)
     private LocalDateTime dtDevolucaoPrevista;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
@@ -39,7 +39,7 @@ public class Locacao implements Serializable {
     @Column(name = "data_devolucao_efetiva")
     private LocalDateTime dtDevolucaoEfetiva;
 
-    @Column(name = "valor_cobrado")
+    @Column(name = "valor_cobrado", nullable = false)
     private Double valorCobrado;
 
     @Column(name = "multa_cobrada")

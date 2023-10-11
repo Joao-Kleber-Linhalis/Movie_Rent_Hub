@@ -85,12 +85,11 @@ public class ClasseService {
 
     private String findByIdDisable(Long id) {
         Optional<Classe> Classe = classeRepository.findByIdAndAtivo(id,false);
-        Optional<ClasseDTO> ClasseDTO = converterOptionalClasseParaDTO(Classe);
-        if (ClasseDTO.isPresent()){
-            return "Objeto atualmente desativado";
+        if (Classe.isPresent()){
+            return "Classe atualmente desativado";
         }
         else {
-            return "Objeto não encontrado";
+            return "Classe não encontrado";
         }
     }
 

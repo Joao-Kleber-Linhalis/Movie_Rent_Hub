@@ -15,12 +15,14 @@ public class Classe implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "O campo NOME é requerido")
+    @Column(nullable = false)
     private String nome;
 
     @NotNull(message = "O campo VALOR é requerido")
+    @Column(nullable = false)
     private Double valor;
 
-    @Column(name = "prazo_devolucao")
+    @Column(name = "prazo_devolucao",nullable = false)
     @NotNull(message = "O campo PRAZO DEVOLUÇÃO é requerido")
     private Integer prazoDevolucao; //Em dias
 
