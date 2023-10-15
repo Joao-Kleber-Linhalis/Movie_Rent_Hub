@@ -26,7 +26,7 @@ public class Locacao implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @NotNull(message = "o campo ITEM é requerido")
-    @JoinColumn(name = "numSerie_item", referencedColumnName = "numero_serie",nullable = false)
+    @JoinColumn(name = "id_item", referencedColumnName = "id",nullable = false)
     private Item item;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
