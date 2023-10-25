@@ -3,6 +3,9 @@ package com.jk.BackEndLocadora.domain.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jk.BackEndLocadora.domain.Item;
 import com.jk.BackEndLocadora.domain.enums.CategoriaFilme;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -28,6 +31,8 @@ public class TituloDTO implements Serializable {
     private String capa;
 
     @NotNull(message = "O campo CATEGORIA precisa de pelo menos 1 (uma) categoria")
+    @ElementCollection(targetClass = CategoriaFilme.class)
+    @Enumerated(EnumType.STRING)
     private Set<CategoriaFilme> categorias;
 
     @JsonIgnoreProperties(value = "titulo")

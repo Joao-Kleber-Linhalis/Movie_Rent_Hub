@@ -59,9 +59,6 @@ public class TituloService {
         if(!tituloDTO.getAtores().isEmpty()){
             tituloDTO.getAtores().forEach(atorDTO -> atorService.findById(atorDTO.getId()));
         }
-        if (StringUtils.isBlank(tituloDTO.getCapa())) {
-            tituloDTO.setCapa("/assets/img/default-cover.png");
-        }
         return modelMapper.map(tituloRepository.save(modelMapper.map(tituloDTO, Titulo.class)), TituloDTO.class);
     }
 

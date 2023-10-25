@@ -73,6 +73,7 @@ export class TituloCreateComponent implements OnInit {
 
   create(): void {
     this.titulo.categorias = this.titulo.categorias.map(categoria => this.removerAcentos(categoria))
+    console.log(this.titulo.categorias);
     this.tituloService.create(this.titulo).subscribe(resposta => {
       this.toast.success('Titulo Cadastrado com sucesso', 'Cadastro');
       this.router.navigate(["titulos"])

@@ -3,8 +3,8 @@
         <mat-nav-list class="nav-list">
             <a mat-list-item routerLink="home">
                 <div class="white">
-                <i class="material-icons custom-icon">home</i>
-                HOME
+                    <i class="material-icons custom-icon">home</i>
+                    HOME
                 </div>
             </a>
             <a mat-list-item routerLink="atores">
@@ -15,42 +15,43 @@
             </a>
             <a mat-list-item routerLink="diretores">
                 <div class="white">
-                <i class="material-icons custom-icon">movie_edit</i>
-                Diretor
+                    <i class="material-icons custom-icon">movie_edit</i>
+                    Diretor
                 </div>
             </a>
             <a mat-list-item routerLink="classes">
                 <div class="white">
-                <i class="material-icons custom-icon">subtitles</i>
-                Classe
+                    <i class="material-icons custom-icon">subtitles</i>
+                    Classe
                 </div>
             </a>
             <a mat-list-item routerLink="titulos">
                 <div class="white">
-                <i class="material-icons custom-icon">theaters</i>
-                Título
+                    <i class="material-icons custom-icon">theaters</i>
+                    Título
                 </div>
             </a>
             <a mat-list-item routerLink="/">
                 <div class="white">
-                <i class="material-icons custom-icon">code</i>
-                GitHub
+                    <i class="material-icons custom-icon">code</i>
+                    GitHub
                 </div>
             </a>
             <a mat-list-item (click)="logout()">
                 <div class="white">
-                <i class="material-icons custom-icon">logout</i>
-                Logout
+                    <i class="material-icons custom-icon">logout</i>
+                    Logout
                 </div>
             </a>
         </mat-nav-list>
+        <img src='assets/img/navBar-image.gif' alt="Imagem da sidenav" />
     </mat-drawer>
 
     <div class="sidenav-content">
         <button class="menu mat-elevation-z8" (click)="toggleMenu(); drawer.toggle()" mat-icon-button>
-          <mat-icon>{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
+            <mat-icon>{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
         </button>
         <router-outlet></router-outlet>
-      </div>
+    </div>
 
 </mat-drawer-container>

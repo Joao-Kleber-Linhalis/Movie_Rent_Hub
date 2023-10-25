@@ -14,6 +14,10 @@ export class TituloService {
 
   constructor(private http: HttpClient) { }
 
+  findById(id: any):Observable<Titulo>{
+    return this.http.get<Titulo>(`${API_CONFIG.baseUrl}/titulos/${id}`);
+  }
+
   findAll(ativo: Boolean){
     if(ativo){
       return this.http.get<Titulo[]>(`${API_CONFIG.baseUrl}/titulos/?status=ativos`)
@@ -25,5 +29,9 @@ export class TituloService {
 
   create(titulo: Titulo):Observable<Titulo> {
     return this.http.post<Titulo>(`${API_CONFIG.baseUrl}/titulos`,titulo)
+  }
+
+  update(titulo: Titulo): Observable<Titulo>{
+    return this.http.put<Titulo>(`${API_CONFIG.baseUrl}/titulos/${titulo.id}`,titulo)
   }
 }

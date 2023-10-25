@@ -34,7 +34,7 @@ public class Titulo implements Serializable {
     @Column(nullable = false)
     private String sinopse;
     @Lob
-    @Column(name = "capa", nullable = false)
+    @Column(name = "capa", nullable = true)
     private String capa;
 
     @NotNull(message = "O campo CATEGORIA precisa de pelo menos 1 (uma) categoria")
