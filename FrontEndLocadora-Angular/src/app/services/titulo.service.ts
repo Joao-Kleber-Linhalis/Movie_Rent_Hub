@@ -34,4 +34,12 @@ export class TituloService {
   update(titulo: Titulo): Observable<Titulo>{
     return this.http.put<Titulo>(`${API_CONFIG.baseUrl}/titulos/${titulo.id}`,titulo)
   }
+
+  disable(id: any): Observable<Titulo> {
+    return this.http.put<Titulo>(`${API_CONFIG.baseUrl}/titulos/desabilitar/${id}`,null)
+  }
+
+  able(id: any): Observable<Titulo> {
+    return this.http.put<Titulo>(`${API_CONFIG.baseUrl}/titulos/habilitar/${id}`,null)
+  }
 }

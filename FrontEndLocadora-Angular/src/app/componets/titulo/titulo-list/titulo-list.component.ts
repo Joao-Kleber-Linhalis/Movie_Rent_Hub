@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { Titulo } from 'src/app/models/titulo';
 import { TituloService } from 'src/app/services/titulo.service';
@@ -12,7 +13,7 @@ import { TituloService } from 'src/app/services/titulo.service';
 })
 export class TituloListComponent implements OnInit{
 
-  constructor(private service: TituloService){}
+  constructor(private service: TituloService,private toast: ToastrService){}
 
   ngOnInit(): void {
     this.ativoChangeSubject.subscribe(() => {
@@ -45,6 +46,9 @@ export class TituloListComponent implements OnInit{
       this.ELEMENT_DATA = resposta;
       this.dataSource = new MatTableDataSource<Titulo>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
+    },
+    error=>{
+      this.toast.error("Erro no Carregamento de Titulos","ERRO")
     })
   }
 

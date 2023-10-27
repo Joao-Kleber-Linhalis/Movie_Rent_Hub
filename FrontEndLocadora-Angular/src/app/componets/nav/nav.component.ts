@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['titulos/create'])
+    this.router.navigate(['titulos/status/11'])
   }
 
   isMenuOpen: boolean = false;

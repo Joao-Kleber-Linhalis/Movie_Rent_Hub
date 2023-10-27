@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { Diretor } from 'src/app/models/diretor';
 import { DiretorService } from 'src/app/services/diretor.service';
@@ -13,7 +14,8 @@ import { DiretorService } from 'src/app/services/diretor.service';
 export class DiretorListComponent implements OnInit {
 
   constructor(
-    private service: DiretorService
+    private service: DiretorService,
+    private toast: ToastrService
   ) { }
 
   ELEMENT_DATA: Diretor[] = []
@@ -49,6 +51,9 @@ export class DiretorListComponent implements OnInit {
       this.ELEMENT_DATA = resposta;
       this.dataSource = new MatTableDataSource<Diretor>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
+    },
+    error=>{
+      this.toast.error("Erro no Carregamento de Diretores","ERRO")
     })
   }
 

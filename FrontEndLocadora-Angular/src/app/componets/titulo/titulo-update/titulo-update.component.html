@@ -39,7 +39,7 @@
         </mat-form-field>
         <div class="diretor">
             <mat-form-field class="fullWidth" appearance="outline">
-                <mat-label>{{titulo.diretor.nome}}</mat-label>
+                <mat-label>Diretor: {{titulo.diretor.nome}}</mat-label>
                 <mat-select [(ngModel)]="titulo.diretor" name="diretor" [formControl]="diretor" required>
                     <mat-option *ngFor="let dir of diretoresList" [value]="dir">{{dir.nome}}</mat-option>
                 </mat-select>
@@ -48,7 +48,7 @@
         </div>
         <div class="classe">
             <mat-form-field class="fullWidth" appearance="outline">
-                <mat-label>{{titulo.classe.nome}}</mat-label>
+                <mat-label>Classe: {{titulo.classe.nome}}</mat-label>
                 <mat-select [(ngModel)]="titulo.classe" name="classe" [formControl]="classe" required>
                     <mat-option *ngFor="let class of classesList" [value]="class">{{class.nome}}</mat-option>
                 </mat-select>

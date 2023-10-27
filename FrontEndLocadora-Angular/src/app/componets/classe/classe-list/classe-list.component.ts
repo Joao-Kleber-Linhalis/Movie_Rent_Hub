@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { Classe } from 'src/app/models/classe';
 import { ClasseService } from 'src/app/services/classe.service';
@@ -13,7 +14,8 @@ import { ClasseService } from 'src/app/services/classe.service';
 export class ClasseListComponent implements OnInit {
 
   constructor(
-    private service: ClasseService
+    private service: ClasseService,
+    private toast: ToastrService
   ){}
 
   ELEMENT_DATA: Classe[] = []
@@ -50,6 +52,9 @@ export class ClasseListComponent implements OnInit {
       this.ELEMENT_DATA = resposta;
       this.dataSource = new MatTableDataSource<Classe>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
+    },
+    error=>{
+      this.toast.error("Erro no Carregamento de Classes","ERRO")
     })
   }
 

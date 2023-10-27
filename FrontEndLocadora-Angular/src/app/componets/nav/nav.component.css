@@ -50,3 +50,10 @@ img{
     width: auto;
     height: 9rem;
 }
+.sidenav-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center; /* Centraliza a imagem horizontalmente */
+}

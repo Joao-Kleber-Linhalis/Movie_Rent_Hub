@@ -51,23 +51,12 @@ export class AtorListComponent implements OnInit {
       this.ELEMENT_DATA = resposta;
       this.dataSource = new MatTableDataSource<Ator>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
+    },
+    error=>{
+      this.toast.error("Erro no Carregamento de Atores/Atrizes","ERRO")
     })
   }
 
-  disable(id: any){
-    this.service.disable(id).subscribe(resposta => {
-      this.toast.success('Diretor Desabilidado com sucesso', 'Desabilitar');
-    }, ex => {
-      console.log(ex);
-      if (ex.error.errors) {
-        ex.error.errors.array.forEach(element => {
-          this.toast.error(element.message);
-        })
-      } else {
-        this.toast.error(ex.error.message);
-      }
-    })
-  }
 
 
   applyFilter(event: Event) {
