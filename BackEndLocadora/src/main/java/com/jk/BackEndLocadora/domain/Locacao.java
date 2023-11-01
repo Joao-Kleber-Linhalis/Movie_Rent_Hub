@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -38,7 +37,6 @@ public class Locacao implements Serializable {
     private Date dtLocacao = new Date();
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @NotNull(message = "o campo ITEM é requerido")
     @JoinColumn(name = "id_item", referencedColumnName = "id",nullable = false)
     private Item item;
 

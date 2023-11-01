@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,26 +22,20 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "O campo NOME é requerido")
     @Column(nullable = false)
     private String nome;
 
-    @NotNull(message = "O campo ENDEREÇO é requerido")
     @Column(nullable = false)
     private String endereco;
-    @NotNull(message = "O campo TELEFONE é requerido")
     @Column(nullable = false)
     private String telefone;
-    @NotNull(message = "O campo SEXO é requerido")
     @Column(nullable = false)
     private String sexo;
 
     //@CPF
-    @NotNull(message = "O campo CPF é requerido")
     @Column(unique = true, nullable = false)
     private String cpf;
 
-    @NotNull(message = "O campo NASCIMENTO é requerido")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(nullable = false)

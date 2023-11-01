@@ -8,7 +8,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -23,12 +22,10 @@ public class Item implements Serializable {
     private Long id;
 
     @Column(name = "numero_serie", nullable = false)
-    @NotNull(message = "O campo NUMERO DE SÉRIE é requerido")
     private Long numSerie;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    @NotNull(message = "O campo DATA DE AQUISIÇÃO DE SÉRIE é requerido")
     @Column(name = "data_aquisicao", nullable = false)
     private Date dtAquisicao;
 

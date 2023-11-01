@@ -3,7 +3,6 @@ package com.jk.BackEndLocadora.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -14,16 +13,13 @@ public class Classe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull(message = "O campo NOME é requerido")
     @Column(nullable = false)
     private String nome;
 
-    @NotNull(message = "O campo VALOR é requerido")
     @Column(nullable = false)
     private Double valor;
 
     @Column(name = "prazo_devolucao",nullable = false)
-    @NotNull(message = "O campo PRAZO DEVOLUÇÃO é requerido")
     private Integer prazoDevolucao; //Em dias
 
     private Boolean ativo = true;
