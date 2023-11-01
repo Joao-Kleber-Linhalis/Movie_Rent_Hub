@@ -36,7 +36,8 @@ public class TituloDTO implements Serializable {
     private Set<CategoriaFilme> categorias;
 
     @JsonIgnoreProperties(value = "titulo")
-    private List<Item> items = new ArrayList<>();
+    private List<ItemDTO> items = new ArrayList<>();
+
     @NotNull(message = "O campo DIRETOR é requerido")
     private DiretorDTO diretor;
     @NotNull(message = "O campo CLASSE é requerido")

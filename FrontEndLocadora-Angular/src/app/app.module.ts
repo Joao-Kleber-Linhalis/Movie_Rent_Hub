@@ -48,6 +48,14 @@ import { TituloCreateComponent } from './componets/titulo/titulo-create/titulo-c
 import { TituloListComponent } from './componets/titulo/titulo-list/titulo-list.component';
 import { TituloUpdateComponent } from './componets/titulo/titulo-update/titulo-update.component';
 import { TituloStatusComponent } from './componets/titulo/titulo-status/titulo-status.component';
+import { ItemCreateComponent } from './componets/item/item-create/item-create.component';
+import { ItemUpdateComponent } from './componets/item/item-update/item-update.component';
+import { ItemListComponent } from './componets/item/item-list/item-list.component';
+import { ItemStatusComponent } from './componets/item/item-status/item-status.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import * as moment from 'moment';
 
 @NgModule({
   declarations: [
@@ -69,7 +77,11 @@ import { TituloStatusComponent } from './componets/titulo/titulo-status/titulo-s
     TituloCreateComponent,
     TituloListComponent,
     TituloUpdateComponent,
-    TituloStatusComponent
+    TituloStatusComponent,
+    ItemCreateComponent,
+    ItemUpdateComponent,
+    ItemListComponent,
+    ItemStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +107,8 @@ import { TituloStatusComponent } from './componets/titulo/titulo-status/titulo-s
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatDatepickerModule, 
+    MatMomentDateModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,
@@ -102,7 +116,11 @@ import { TituloStatusComponent } from './componets/titulo/titulo-status/titulo-s
     }),
     NgxMaskModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+moment.locale('pt-BR');

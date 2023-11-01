@@ -7,7 +7,7 @@
             <div class="image-preview">
                 <div class="center-content">
                     <div class="image-wrapper">
-                        <img [src]="oldImageUrl" alt="Imagem do Filme">
+                        <img [src]="oldImageUrl ? oldImageUrl : 'assets/img/default-cover.png'" alt="Imagem do Filme">
                         <div class="image-title">Capa Atual do Filme</div>
                     </div>
                 </div>
@@ -39,8 +39,8 @@
         </mat-form-field>
         <div class="diretor">
             <mat-form-field class="fullWidth" appearance="outline">
-                <mat-label>Diretor: {{titulo.diretor.nome}}</mat-label>
-                <mat-select [(ngModel)]="titulo.diretor" name="diretor" [formControl]="diretor" required>
+                <mat-label>Diretor</mat-label>
+                <mat-select [(ngModel)]="titulo.diretor" name="diretor" [formControl]="diretor" [compareWith]="compareWithDiretor" required>
                     <mat-option *ngFor="let dir of diretoresList" [value]="dir">{{dir.nome}}</mat-option>
                 </mat-select>
                 <mat-icon matSuffix>movie_edit</mat-icon>
@@ -48,8 +48,8 @@
         </div>
         <div class="classe">
             <mat-form-field class="fullWidth" appearance="outline">
-                <mat-label>Classe: {{titulo.classe.nome}}</mat-label>
-                <mat-select [(ngModel)]="titulo.classe" name="classe" [formControl]="classe" required>
+                <mat-label>Classe</mat-label>
+                <mat-select [(ngModel)]="titulo.classe" name="classe" [formControl]="classe" [compareWith]="compareWithClasse" required>
                     <mat-option *ngFor="let class of classesList" [value]="class">{{class.nome}}</mat-option>
                 </mat-select>
                 <mat-icon matSuffix>subtitles</mat-icon>

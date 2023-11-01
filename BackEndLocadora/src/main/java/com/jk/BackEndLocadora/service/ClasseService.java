@@ -41,7 +41,7 @@ public class ClasseService {
     public ClasseDTO create(ClasseDTO classeDTO){
         classeDTO.setId(null);
         if(classeRepository.findByNome(classeDTO.getNome()).isPresent()){
-            throw new IllegalArgumentException("Nome de Classe já cadastrado");
+            throw new DataIntegrityViolationException("Nome de Classe já cadastrado");
         }
         return modelMapper.map(classeRepository.save(modelMapper.map(classeDTO,Classe.class)), ClasseDTO.class);
     }

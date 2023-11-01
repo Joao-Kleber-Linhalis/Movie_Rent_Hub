@@ -7,6 +7,8 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -36,7 +38,7 @@ public class Dependente implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(nullable = false)
-    private LocalDateTime nascimento;
+    private Date nascimento;
 
     @JsonIgnoreProperties(value = "dependentes")
     @ManyToOne(fetch = FetchType.EAGER)

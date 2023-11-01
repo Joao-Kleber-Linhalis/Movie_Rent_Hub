@@ -3,6 +3,7 @@ package com.jk.BackEndLocadora.service;
 import com.jk.BackEndLocadora.domain.Diretor;
 import com.jk.BackEndLocadora.domain.Titulo;
 import com.jk.BackEndLocadora.domain.dto.DiretorDTO;
+import com.jk.BackEndLocadora.domain.dto.ItemDTO;
 import com.jk.BackEndLocadora.domain.dto.TituloDTO;
 import com.jk.BackEndLocadora.domain.enums.CategoriaFilme;
 import com.jk.BackEndLocadora.exceptions.ObjectNotFoundException;
@@ -65,9 +66,18 @@ public class TituloService {
     public TituloDTO update(Long id, TituloDTO tituloDTO){
         tituloDTO.setId(id);
         TituloDTO tituloDTO1 = findById(id);
-        if(!tituloDTO.getAtivo() && tituloDTO1.getAtivo()){
+
+        // Verifique se o DTO do banco (tituloDTO1) possui uma lista de itens não nula e não vazia
+        if (tituloDTO1.getItems() != null && !tituloDTO1.getItems().isEmpty()) {
+            // Se a lista do DTO do banco não for nula e não estiver vazia,
+            // atribua-a ao DTO que está sendo atualizado
+            tituloDTO.setItems(tituloDTO1.getItems());
+        }
+
+        if (!tituloDTO.getAtivo() && tituloDTO1.getAtivo()) {
             return disable(id);
         }
+
         return modelMapper.map(tituloRepository.save(modelMapper.map(tituloDTO, Titulo.class)), TituloDTO.class);
     }
 

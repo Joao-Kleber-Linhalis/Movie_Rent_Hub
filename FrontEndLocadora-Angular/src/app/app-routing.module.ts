@@ -18,6 +18,10 @@ import { TituloCreateComponent } from './componets/titulo/titulo-create/titulo-c
 import { TituloListComponent } from './componets/titulo/titulo-list/titulo-list.component';
 import { TituloStatusComponent } from './componets/titulo/titulo-status/titulo-status.component';
 import { TituloUpdateComponent } from './componets/titulo/titulo-update/titulo-update.component';
+import { ItemCreateComponent } from './componets/item/item-create/item-create.component';
+import { ItemListComponent } from './componets/item/item-list/item-list.component';
+import { ItemStatusComponent } from './componets/item/item-status/item-status.component';
+import { ItemUpdateComponent } from './componets/item/item-update/item-update.component';
 
 const routes: Routes = [
   {
@@ -43,6 +47,11 @@ const routes: Routes = [
       { path: 'titulos/create', component: TituloCreateComponent },
       { path: 'titulos/update/:id', component: TituloUpdateComponent },
       { path: 'titulos/status/:id', component: TituloStatusComponent },
+      //Itens
+      { path: 'itens', component: ItemListComponent },
+      { path: 'itens/create', component: ItemCreateComponent },
+      { path: 'itens/update/:id', component: ItemUpdateComponent },
+      { path: 'itens/status/:id', component: ItemStatusComponent },
     ]
   }
 ];

@@ -51,6 +51,8 @@ img{
     height: 9rem;
 }
 .sidenav-image {
+    width: 100;
+    margin: 0 auto;
     position: absolute;
     bottom: 0;
     left: 0;

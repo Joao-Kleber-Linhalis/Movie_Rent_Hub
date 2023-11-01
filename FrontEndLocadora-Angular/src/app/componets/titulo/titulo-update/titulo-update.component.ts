@@ -54,6 +54,8 @@ export class TituloUpdateComponent implements OnInit {
   classe = new FormControl(null, Validators.required);
   atores: FormControl = new FormControl(null);
   compareWith = (o1: Ator, o2: Ator) => o1.id == o2.id;
+  compareWithDiretor = (o1: Diretor, o2: Diretor) => o1.id == o2.id;
+  compareWithClasse = (o1: Classe, o2: Classe) => o1.id == o2.id;
   compareCategorias(categoria: CategoriaEnum, categoriaSelecionada: string): boolean {
     return categoria === CategoriaEnum[categoriaSelecionada];
   }

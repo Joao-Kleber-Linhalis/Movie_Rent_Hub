@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -44,8 +45,12 @@ public class ItemService {
 
     public ItemDTO create(ItemDTO itemDTO){
         tituloService.findById(itemDTO.getTitulo().getId());
+        Optional<Item> item = itemRepository.findBynumSerie(itemDTO.getNumSerie());
+        if (item.isPresent() && !itemDTO.getTitulo().equals(item.get().getTitulo())) {
+            throw new DataIntegrityViolationException("Número de Série: " + item.get().getNumSerie() + " pertence ao filme '" + item.get().getTitulo().getNome() + "'");
+        }
         if(itemDTO.getDtAquisicao() == null){
-            itemDTO.setDtAquisicao(LocalDateTime.now());
+            itemDTO.setDtAquisicao(new Date());
         }
         if(itemDTO.getStatusItem() == null){
             itemDTO.setStatusItem(StatusItem.DISPONIVEL);

@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -35,7 +36,7 @@ public class ClienteDTO implements Serializable {
     @NotNull(message = "O campo NASCIMENTO é requerido")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime nascimento;
+    private Date nascimento;
 
     private Boolean ativo = true;
 

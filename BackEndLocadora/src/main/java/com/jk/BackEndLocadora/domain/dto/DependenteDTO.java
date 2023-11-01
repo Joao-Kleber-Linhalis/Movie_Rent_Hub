@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 public class DependenteDTO implements Serializable {
@@ -29,7 +30,7 @@ public class DependenteDTO implements Serializable {
     @NotNull(message = "O campo NASCIMENTO é requerido")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime nascimento;
+    private Date nascimento;
 
     @JsonIgnoreProperties(value = "dependentes")
     private ClienteDTO cliente;

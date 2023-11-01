@@ -19,4 +19,6 @@ public interface ItemRepository extends JpaRepository<Item,Long> {
 
     @Query("SELECT t FROM Item t WHERE t.ativo = :status ORDER BY t.id")
     List<Item> findByStatus(boolean status);
+
+    Optional<Item> findBynumSerie(Long numSerie);
 }

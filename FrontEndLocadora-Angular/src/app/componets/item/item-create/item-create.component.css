@@ -1,0 +1,102 @@
+.container{
+    width: 45%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.fullWidth{
+    width: 100%;
+}
+h1, img{
+    text-align: center;
+}
+
+img{
+    height: 15rem;
+}
+
+.status-prioridade{
+    display: flex;
+    justify-content: space-between;
+}
+
+.status-prioridade mat-form-field{
+    width: 49%;
+}
+
+.sinopse{
+    min-height: 6rem;
+    max-height: 10rem;
+    width: 100%;
+}
+
+button{
+    margin-top: .5rem;
+}
+
+.espacamentoCampos {
+    margin-left: 3%;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaçamento entre as caixas de seleção */
+    align-items: center; /* Alinhar verticalmente no centro, se necessário */
+  }
+  
+  /* O estilo abaixo é opcional e pode ser ajustado conforme necessário */
+  .mat-checkbox {
+    flex: 1; /* Distribuir igualmente o espaço disponível */
+    white-space: nowrap; /* Impedir que o texto quebre em várias linhas */
+    overflow: hidden; /* Ocultar o texto que não cabe no espaço disponível */
+    text-overflow: ellipsis; /* Mostrar reticências (...) para texto truncado */
+  }
+
+  mat-icon{
+    opacity: .67;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .image-container{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .info-field {
+    display: inline-block;
+    /* Espaçamento entre os campos */
+  }
+
+  .info-fields-container {
+    width: 100%;
+    display: flex;
+    gap: 20px; /* Espaçamento entre os campos */
+    justify-content: space-between;
+  }
+  
+  .info-field {
+    flex: 1; /* Distribui espaço igualmente entre os campos */
+  }
+  
+  /* Estilo de contorno para campos de entrada desabilitados */
+  .mat-form-field-should-float .mat-form-field-label {
+    color: #757575; /* Cor do rótulo */
+  }
+  
+  .mat-form-field-should-float .mat-form-field-label {
+    font-size: 16px; /* Tamanho da fonte do rótulo */
+  }
+  
+  .mat-input-element:disabled {
+    background-color: #f5f5f5; /* Cor de fundo quando desabilitado */
+    color: #757575; /* Cor do texto quando desabilitado */
+    border: none; /* Remove a borda quando desabilitado */
+  }

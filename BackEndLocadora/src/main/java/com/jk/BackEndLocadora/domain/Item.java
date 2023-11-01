@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Entity
@@ -26,10 +27,10 @@ public class Item implements Serializable {
     private Long numSerie;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @NotNull(message = "O campo DATA DE AQUISIÇÃO DE SÉRIE é requerido")
     @Column(name = "data_aquisicao", nullable = false)
-    private LocalDateTime dtAquisicao;
+    private Date dtAquisicao;
 
     @JsonIgnoreProperties(value = "items")
     @ManyToOne(fetch = FetchType.LAZY)

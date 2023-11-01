@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 public class ItemDTO implements Serializable {
@@ -22,9 +23,9 @@ public class ItemDTO implements Serializable {
     private Long numSerie;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @NotNull(message = "O campo DATA DE AQUISIÇÃO é requerido")
-    private LocalDateTime dtAquisicao;
+    private Date dtAquisicao;
 
     @JsonIgnoreProperties(value = "items")
     private TituloDTO titulo;
@@ -33,5 +34,6 @@ public class ItemDTO implements Serializable {
     private TipoItem tipoItem;
 
     private StatusItem statusItem;
+
     private Boolean ativo = true;
 }
