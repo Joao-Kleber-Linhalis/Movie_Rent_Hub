@@ -56,6 +56,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import * as moment from 'moment';
+import { ClienteListComponent } from './componets/cliente/cliente-list/cliente-list.component';
+import { ClienteCreateComponent } from './componets/cliente/cliente-create/cliente-create.component';
+import { ClienteUpdateComponent } from './componets/cliente/cliente-update/cliente-update.component';
+import { ClienteStatusComponent } from './componets/cliente/cliente-status/cliente-status.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +85,11 @@ import * as moment from 'moment';
     ItemCreateComponent,
     ItemUpdateComponent,
     ItemListComponent,
-    ItemStatusComponent
+    ItemStatusComponent,
+    ClienteListComponent,
+    ClienteCreateComponent,
+    ClienteUpdateComponent,
+    ClienteStatusComponent
   ],
   imports: [
     BrowserModule,

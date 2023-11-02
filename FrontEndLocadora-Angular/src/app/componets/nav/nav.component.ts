@@ -15,13 +15,27 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['itens/create'])
+    this.router.navigate(['clientes'])
   }
 
   isMenuOpen: boolean = false;
+  controleClientesOpen = false;
+  controleAcervoOpen = false;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  toggleControleClientes() {
+    this.controleClientesOpen = !this.controleClientesOpen;
+    // Feche o Controle de Acervo se estiver aberto
+    this.controleAcervoOpen = false;
+  }
+
+  toggleControleAcervo() {
+    this.controleAcervoOpen = !this.controleAcervoOpen;
+    // Feche o Controle de Clientes se estiver aberto
+    this.controleClientesOpen = false;
   }
 
   logout() {

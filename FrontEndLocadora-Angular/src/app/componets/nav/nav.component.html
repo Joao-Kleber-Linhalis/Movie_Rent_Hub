@@ -1,55 +1,79 @@
 <mat-drawer-container class="container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side">
         <mat-nav-list class="nav-list">
-            <a mat-list-item routerLink="home">
+            <a mat-list-item (click)="toggleControleClientes()" >
                 <div class="white">
-                    <i class="material-icons custom-icon">home</i>
-                    HOME
+                    <i class="material-icons custom-icon">group</i>
+                    Pessoas
+                    <i class="material-icons custom-icon">{{ controleClientesOpen ? 'expand_less' : 'expand_more' }}</i>
                 </div>
             </a>
-            <a mat-list-item routerLink="atores">
+            <ng-container *ngIf="controleClientesOpen">
+                <a mat-list-item routerLink="clientes">
+                    <div class="white">
+                        <i class="material-icons custom-icon">account_circle</i>
+                        Clientes
+                    </div>
+                </a>
+                <a mat-list-item routerLink="dependentes">
+                    <div class="white">
+                        <i class="material-icons custom-icon">supervisor_account</i>
+                        Dependentes
+                    </div>
+                </a>
+            </ng-container>
+            <a mat-list-item (click)="toggleControleAcervo()" >
                 <div class="white">
-                    <i class="material-icons custom-icon">theater_comedy</i>
-                    Atores
+                    <i class="material-icons custom-icon">movie</i>
+                    Acervo 
+                    <i class="material-icons custom-icon">{{ controleAcervoOpen ? 'expand_less' : 'expand_more' }}</i>
                 </div>
             </a>
-            <a mat-list-item routerLink="diretores">
-                <div class="white">
-                    <i class="material-icons custom-icon">movie_edit</i>
-                    Diretor
-                </div>
-            </a>
-            <a mat-list-item routerLink="classes">
-                <div class="white">
-                    <i class="material-icons custom-icon">subtitles</i>
-                    Classe
-                </div>
-            </a>
-            <a mat-list-item routerLink="titulos">
-                <div class="white">
-                    <i class="material-icons custom-icon">theaters</i>
-                    Título
-                </div>
-            </a>
-            <a mat-list-item routerLink="itens">
-                <div class="white">
-                    <i class="material-icons custom-icon">album</i>
-                    Item
-                </div>
-            </a>
+            <ng-container *ngIf="controleAcervoOpen">
+                <a mat-list-item routerLink="atores">
+                    <div class="white">
+                        <i class="material-icons custom-icon">theater_comedy</i>
+                        Atores
+                    </div>
+                </a>
+                <a mat-list-item routerLink="diretores">
+                    <div class="white">
+                        <i class="material-icons custom-icon">movie_edit</i>
+                        Diretor
+                    </div>
+                </a>
+                <a mat-list-item routerLink="classes">
+                    <div class="white">
+                        <i class="material-icons custom-icon">subtitles</i>
+                        Classe
+                    </div>
+                </a>
+                <a mat-list-item routerLink="titulos">
+                    <div class="white">
+                        <i class="material-icons custom-icon">theaters</i>
+                        Título
+                    </div>
+                </a>
+                <a mat-list-item routerLink="itens">
+                    <div class="white">
+                        <i class="material-icons custom-icon">album</i>
+                        Item
+                    </div>
+                </a>
+            </ng-container>
             <a mat-list-item href="https://github.com/Joao-Kleber-Linhalis/Dev-Web-2" target="_blank">
                 <div class="white">
                     <i class="material-icons custom-icon">code</i>
                     GitHub
                 </div>
             </a>
-            <a mat-list-item (click)="logout()">
-                <div class="white">
-                    <i class="material-icons custom-icon">logout</i>
-                    Logout
-                </div>
-            </a>
             <div class="sidenav-image">
+                <a mat-list-item (click)="logout()">
+                    <div class="white">
+                        <i class="material-icons custom-icon">exit_to_app</i>
+                        Logout
+                    </div>
+                </a>
                 <img src='assets/img/navBar-image.gif' alt="Imagem da sidenav" />
             </div>
         </mat-nav-list>
@@ -61,5 +85,4 @@
         </button>
         <router-outlet></router-outlet>
     </div>
-
 </mat-drawer-container>

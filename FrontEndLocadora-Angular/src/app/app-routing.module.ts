@@ -22,6 +22,10 @@ import { ItemCreateComponent } from './componets/item/item-create/item-create.co
 import { ItemListComponent } from './componets/item/item-list/item-list.component';
 import { ItemStatusComponent } from './componets/item/item-status/item-status.component';
 import { ItemUpdateComponent } from './componets/item/item-update/item-update.component';
+import { ClienteCreateComponent } from './componets/cliente/cliente-create/cliente-create.component';
+import { ClienteListComponent } from './componets/cliente/cliente-list/cliente-list.component';
+import { ClienteStatusComponent } from './componets/cliente/cliente-status/cliente-status.component';
+import { ClienteUpdateComponent } from './componets/cliente/cliente-update/cliente-update.component';
 
 const routes: Routes = [
   {
@@ -52,6 +56,11 @@ const routes: Routes = [
       { path: 'itens/create', component: ItemCreateComponent },
       { path: 'itens/update/:id', component: ItemUpdateComponent },
       { path: 'itens/status/:id', component: ItemStatusComponent },
+      //Clientes
+      { path: 'clientes', component: ClienteListComponent },
+      { path: 'clientes/create', component: ClienteCreateComponent },
+      { path: 'clientes/update/:id', component: ClienteUpdateComponent },
+      { path: 'clientes/status/:id', component: ClienteStatusComponent },
     ]
   }
 ];

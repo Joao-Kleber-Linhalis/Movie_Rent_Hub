@@ -48,6 +48,9 @@ public class ClienteService {
     public ClienteDTO update(Long id, ClienteDTO clienteDTO){
         clienteDTO.setId(id);
         ClienteDTO clienteDTO1 = findById(id);
+        if(clienteDTO1.getDependentes() != null && !clienteDTO1.getDependentes().isEmpty()){
+            clienteDTO.setDependentes(clienteDTO1.getDependentes());
+        }
         if(!clienteDTO.getAtivo() && clienteDTO1.getAtivo()){
             return disable(id);
         }
