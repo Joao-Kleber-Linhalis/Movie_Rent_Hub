@@ -78,14 +78,18 @@ h1 {
     /* Mude a cor do texto ao passar o cursor sobre ele */
 }
 
-.edit{
-    color: rgb(6, 142, 253);
-} 
+.center-text {
+    text-align: center;
+}
 
-.delete{
+.edit {
+    color: rgb(6, 142, 253);
+}
+
+.delete {
     color: red;
 }
 
 .done{
-    color: green
+    color: green;
 }
