@@ -26,6 +26,10 @@ import { ClienteCreateComponent } from './componets/cliente/cliente-create/clien
 import { ClienteListComponent } from './componets/cliente/cliente-list/cliente-list.component';
 import { ClienteStatusComponent } from './componets/cliente/cliente-status/cliente-status.component';
 import { ClienteUpdateComponent } from './componets/cliente/cliente-update/cliente-update.component';
+import { DependenteCreateComponent } from './componets/dependente/dependente-create/dependente-create.component';
+import { DependenteListComponent } from './componets/dependente/dependente-list/dependente-list.component';
+import { DependenteStatusComponent } from './componets/dependente/dependente-status/dependente-status.component';
+import { DependenteUpdateComponent } from './componets/dependente/dependente-update/dependente-update.component';
 
 const routes: Routes = [
   {
@@ -61,6 +65,11 @@ const routes: Routes = [
       { path: 'clientes/create', component: ClienteCreateComponent },
       { path: 'clientes/update/:id', component: ClienteUpdateComponent },
       { path: 'clientes/status/:id', component: ClienteStatusComponent },
+      //Dependentes
+      { path: 'dependentes', component: DependenteListComponent },
+      { path: 'dependentes/create', component: DependenteCreateComponent },
+      { path: 'dependentes/update/:id', component: DependenteUpdateComponent },
+      { path: 'dependentes/status/:id', component: DependenteStatusComponent },
     ]
   }
 ];

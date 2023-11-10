@@ -27,7 +27,7 @@ public class DependenteDTO implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date nascimento;
 
-    @JsonIgnoreProperties(value = "dependentes")
+    @JsonIgnoreProperties(value = "dependentes",allowSetters = true)
     private ClienteDTO cliente;
 
     private Boolean ativo = true;

@@ -60,6 +60,10 @@ import { ClienteListComponent } from './componets/cliente/cliente-list/cliente-l
 import { ClienteCreateComponent } from './componets/cliente/cliente-create/cliente-create.component';
 import { ClienteUpdateComponent } from './componets/cliente/cliente-update/cliente-update.component';
 import { ClienteStatusComponent } from './componets/cliente/cliente-status/cliente-status.component';
+import { DependenteListComponent } from './componets/dependente/dependente-list/dependente-list.component';
+import { DependenteCreateComponent } from './componets/dependente/dependente-create/dependente-create.component';
+import { DependenteUpdateComponent } from './componets/dependente/dependente-update/dependente-update.component';
+import { DependenteStatusComponent } from './componets/dependente/dependente-status/dependente-status.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +93,11 @@ import { ClienteStatusComponent } from './componets/cliente/cliente-status/clien
     ClienteListComponent,
     ClienteCreateComponent,
     ClienteUpdateComponent,
-    ClienteStatusComponent
+    ClienteStatusComponent,
+    DependenteListComponent,
+    DependenteCreateComponent,
+    DependenteUpdateComponent,
+    DependenteStatusComponent
   ],
   imports: [
     BrowserModule,

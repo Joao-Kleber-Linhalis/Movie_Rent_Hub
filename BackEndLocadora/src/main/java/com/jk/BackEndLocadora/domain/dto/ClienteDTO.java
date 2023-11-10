@@ -33,7 +33,7 @@ public class ClienteDTO implements Serializable {
 
     private Boolean ativo = true;
 
-    @JsonIgnoreProperties(value = "cliente")
+    @JsonIgnoreProperties(value = "cliente",allowSetters = true)
     private List<DependenteDTO> dependentes = new ArrayList<>();
 
 }

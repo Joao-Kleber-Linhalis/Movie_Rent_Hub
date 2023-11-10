@@ -30,7 +30,7 @@ public class TituloDTO implements Serializable {
     @Enumerated(EnumType.STRING)
     private Set<CategoriaFilme> categorias;
 
-    @JsonIgnoreProperties(value = "titulo")
+    @JsonIgnoreProperties(value = "titulo",allowSetters = true)
     private List<ItemDTO> items = new ArrayList<>();
 
     private DiretorDTO diretor;

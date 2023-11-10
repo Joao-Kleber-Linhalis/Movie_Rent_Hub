@@ -35,7 +35,7 @@ public class Dependente implements Serializable {
     @Column(nullable = false)
     private Date nascimento;
 
-    @JsonIgnoreProperties(value = "dependentes")
+    @JsonIgnoreProperties(value = "dependentes",allowSetters = true)
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_cliente", referencedColumnName = "id", nullable = false)
     private Cliente cliente;

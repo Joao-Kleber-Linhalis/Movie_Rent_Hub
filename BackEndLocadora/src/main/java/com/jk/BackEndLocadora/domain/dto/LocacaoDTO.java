@@ -18,10 +18,10 @@ import java.util.Date;
 public class LocacaoDTO implements Serializable {
     private Long id;
 
-    @JsonIgnoreProperties(value = "dependentes")
+    @JsonIgnoreProperties(value = "dependentes",allowSetters = true)
     private ClienteDTO cliente;
 
-    @JsonIgnoreProperties(value = "cliente")
+    @JsonIgnoreProperties(value = "cliente",allowSetters = true)
     private DependenteDTO dependente;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")

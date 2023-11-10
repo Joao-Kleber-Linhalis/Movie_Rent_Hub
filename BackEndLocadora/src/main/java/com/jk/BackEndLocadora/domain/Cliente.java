@@ -43,7 +43,7 @@ public class Cliente implements Serializable {
 
     private Boolean ativo = true;
 
-    @JsonIgnoreProperties(value = "cliente")
+    @JsonIgnoreProperties(value = "cliente",allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "cliente",cascade = CascadeType.ALL)
     private List<Dependente> dependentes = new ArrayList<>();
 

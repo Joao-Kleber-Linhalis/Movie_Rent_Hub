@@ -64,7 +64,7 @@ public class ClienteService {
         List<String> nomes = clienteRepository.findActiveDependentesByClienteId(id);
         if(!nomes.isEmpty()){
             String nomesDependentes = String.join(", ", nomes);
-            throw new DataIntegrityViolationException("Cliente possui " + nomes.size() + " dependentes associados a ele. Nomes:  " + nomesDependentes);
+            throw new DataIntegrityViolationException("Cliente possui " + nomes.size() + " dependentes ativos associados a ele. Nomes:  " + nomesDependentes);
         }
         cliente.setAtivo(false);
         return modelMapper.map(clienteRepository.save(cliente), ClienteDTO.class);

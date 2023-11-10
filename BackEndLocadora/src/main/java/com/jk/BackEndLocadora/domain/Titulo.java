@@ -38,7 +38,7 @@ public class Titulo implements Serializable {
     @Column(name = "categoria_filme", nullable = false)
     private Set<CategoriaFilme> categorias;
 
-    @JsonIgnoreProperties(value = "titulo")
+    @JsonIgnoreProperties(value = "titulo",allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "titulo",cascade = CascadeType.ALL)
     private List<Item> items = new ArrayList<>();
 

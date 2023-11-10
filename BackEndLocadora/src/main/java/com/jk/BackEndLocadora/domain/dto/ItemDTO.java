@@ -24,7 +24,7 @@ public class ItemDTO implements Serializable {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dtAquisicao;
 
-    @JsonIgnoreProperties(value = "items")
+    @JsonIgnoreProperties(value = "items",allowSetters = true)
     private TituloDTO titulo;
 
     private TipoItem tipoItem;

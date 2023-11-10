@@ -21,12 +21,12 @@ public class Locacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnoreProperties(value = "dependentes")
+    @JsonIgnoreProperties(value = "dependentes",allowSetters = true)
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_cliente", referencedColumnName = "id", nullable = false)
     private Cliente cliente;
 
-    @JsonIgnoreProperties(value = "cliente")
+    @JsonIgnoreProperties(value = "cliente",allowSetters = true)
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_dependente", referencedColumnName = "id", nullable = true)
     private Dependente dependente;

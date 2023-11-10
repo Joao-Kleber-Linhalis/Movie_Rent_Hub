@@ -29,7 +29,7 @@ public class Item implements Serializable {
     @Column(name = "data_aquisicao", nullable = false)
     private Date dtAquisicao;
 
-    @JsonIgnoreProperties(value = "items")
+    @JsonIgnoreProperties(value = "items",allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_titulo", referencedColumnName = "id", nullable = false)
     private Titulo titulo;
