@@ -52,4 +52,10 @@ public class ExceptionHandlerController {
         StandardError error = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Max Dependentes Ativos Exceeded", ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
+
+    @ExceptionHandler(LocacaoEmAtrasoExceededException.class)
+    public ResponseEntity<StandardError> handleMaxDependentesAtivosException(LocacaoEmAtrasoExceededException ex, HttpServletRequest request) {
+        StandardError error = new StandardError(System.currentTimeMillis(), HttpStatus.UNPROCESSABLE_ENTITY.value(), "Locação em Atraso", ex.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
 }

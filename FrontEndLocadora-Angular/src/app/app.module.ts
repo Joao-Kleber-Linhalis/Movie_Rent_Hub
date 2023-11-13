@@ -64,6 +64,10 @@ import { DependenteListComponent } from './componets/dependente/dependente-list/
 import { DependenteCreateComponent } from './componets/dependente/dependente-create/dependente-create.component';
 import { DependenteUpdateComponent } from './componets/dependente/dependente-update/dependente-update.component';
 import { DependenteStatusComponent } from './componets/dependente/dependente-status/dependente-status.component';
+import { LocacaoCreateComponent } from './componets/locacao/locacao-create/locacao-create.component';
+import { LocacaoUpdateComponent } from './componets/locacao/locacao-update/locacao-update.component';
+import { LocacaoListComponent } from './componets/locacao/locacao-list/locacao-list.component';
+import { LocacaoDeleteComponent } from './componets/locacao/locacao-delete/locacao-delete.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +101,11 @@ import { DependenteStatusComponent } from './componets/dependente/dependente-sta
     DependenteListComponent,
     DependenteCreateComponent,
     DependenteUpdateComponent,
-    DependenteStatusComponent
+    DependenteStatusComponent,
+    LocacaoCreateComponent,
+    LocacaoUpdateComponent,
+    LocacaoListComponent,
+    LocacaoDeleteComponent
   ],
   imports: [
     BrowserModule,

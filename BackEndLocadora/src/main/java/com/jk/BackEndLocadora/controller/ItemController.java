@@ -52,7 +52,7 @@ public class ItemController {
             @ApiResponse(responseCode = "200", description = "Caso o Item seja criado"),
             @ApiResponse(responseCode = "404", description = "Caso algum erro não permita o cadastro")})
     public ResponseEntity<ItemDTO> create(@Valid @RequestBody ItemDTO itemDTO){
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(itemService.create(itemDTO).getNumSerie()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(itemService.create(itemDTO).getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 

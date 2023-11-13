@@ -36,7 +36,7 @@ public class LocacaoDTO implements Serializable {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime dtDevolucaoEfetiva;
+    private Date dtDevolucaoEfetiva;
 
     private Double valorCobrado;
 

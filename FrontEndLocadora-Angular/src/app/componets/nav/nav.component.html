@@ -1,6 +1,12 @@
 <mat-drawer-container class="container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side">
         <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="home">
+                <div class="white">
+                    <i class="material-icons custom-icon">home</i>
+                    Home
+                </div>
+            </a>
             <a mat-list-item (click)="toggleControleClientes()" >
                 <div class="white">
                     <i class="material-icons custom-icon">group</i>
@@ -19,6 +25,12 @@
                     <div class="white">
                         <i class="material-icons custom-icon">supervisor_account</i>
                         Dependentes
+                    </div>
+                </a>
+                <a mat-list-item routerLink="locacoes">
+                    <div class="white">
+                        <i class="material-icons custom-icon">shop</i>
+                        Locações
                     </div>
                 </a>
             </ng-container>

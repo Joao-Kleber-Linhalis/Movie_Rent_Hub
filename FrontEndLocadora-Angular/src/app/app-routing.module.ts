@@ -30,6 +30,10 @@ import { DependenteCreateComponent } from './componets/dependente/dependente-cre
 import { DependenteListComponent } from './componets/dependente/dependente-list/dependente-list.component';
 import { DependenteStatusComponent } from './componets/dependente/dependente-status/dependente-status.component';
 import { DependenteUpdateComponent } from './componets/dependente/dependente-update/dependente-update.component';
+import { LocacaoCreateComponent } from './componets/locacao/locacao-create/locacao-create.component';
+import { LocacaoDeleteComponent } from './componets/locacao/locacao-delete/locacao-delete.component';
+import { LocacaoListComponent } from './componets/locacao/locacao-list/locacao-list.component';
+import { LocacaoUpdateComponent } from './componets/locacao/locacao-update/locacao-update.component';
 
 const routes: Routes = [
   {
@@ -70,6 +74,12 @@ const routes: Routes = [
       { path: 'dependentes/create', component: DependenteCreateComponent },
       { path: 'dependentes/update/:id', component: DependenteUpdateComponent },
       { path: 'dependentes/status/:id', component: DependenteStatusComponent },
+      //Locações
+      { path: 'locacoes', component: LocacaoListComponent },
+      { path: 'locacoes/create', component: LocacaoCreateComponent },
+      { path: 'locacoes/update/:id', component: LocacaoUpdateComponent },
+      { path: 'locacoes/delete/:id', component: LocacaoDeleteComponent }, //Unica com delete
+
     ]
   }
 ];

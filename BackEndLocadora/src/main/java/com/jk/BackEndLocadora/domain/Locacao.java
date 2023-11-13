@@ -43,7 +43,7 @@ public class Locacao implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "data_devolucao_prevista", nullable = false)
-    private LocalDateTime dtDevolucaoPrevista;
+    private Date dtDevolucaoPrevista;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -60,20 +60,10 @@ public class Locacao implements Serializable {
 
     public long getDiasAtraso() {
         if (this.dtDevolucaoEfetiva != null) {
-            return ChronoUnit.DAYS.between(this.dtDevolucaoPrevista, (Temporal) this.dtDevolucaoEfetiva);
+            return ChronoUnit.DAYS.between((Temporal) this.dtDevolucaoPrevista, (Temporal) this.dtDevolucaoEfetiva);
         } else {
             return 0;
         }
     }
-
-    /*@PostLoad
-    private void onLoad() {
-        if (this.item != null) {
-            this.dtDevolucaoPrevista = dtLocacao.plusDays(this.item.getTitulo().getClasse().getPrazoDevolucao());
-            this.valorCobrado = this.item.getTitulo().getClasse().getValor();
-            this.multaCobrada = getMultaCobrada();
-            this.total = this.valorCobrado + this.multaCobrada;
-        }
-    }*/
 
 }
