@@ -7,7 +7,7 @@ export interface Locacao{
     cliente : Cliente,
     dependente?: Dependente,
     dtLocacao: string,
-    item?: Item,
+    item: Item,
     dtDevolucaoPrevista: string,
     dtDevolucaoEfetiva?: string,
     valorCobrado: number,

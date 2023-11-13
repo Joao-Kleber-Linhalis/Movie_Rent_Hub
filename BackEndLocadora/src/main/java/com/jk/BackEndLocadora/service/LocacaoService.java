@@ -99,6 +99,9 @@ public class LocacaoService {
     public void delete(Long id){
         LocacaoDTO locacao = findById(id);
         locacaoRepository.delete(modelMapper.map(locacao,Locacao.class));
+        ItemDTO itemDTO = locacao.getItem();
+        itemDTO.setStatusItem(StatusItem.DISPONIVEL);
+        itemService.update(itemDTO.getId(),itemDTO);
         return;
     }
 

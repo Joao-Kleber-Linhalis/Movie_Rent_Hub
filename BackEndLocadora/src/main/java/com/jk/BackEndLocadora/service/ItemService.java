@@ -38,6 +38,11 @@ public class ItemService {
         return converterOptionalItemParaDTO(item).orElseThrow(() -> new ObjectNotFoundException(findByIdDisable(id) + " Id:" + id));
     }
 
+    public ItemDTO findByIdDisponivel(Long id) {
+        Optional<Item> item = itemRepository.findByIdAndStatusItemAndAtivo(id,StatusItem.DISPONIVEL,true);
+        return converterOptionalItemParaDTO(item).orElseThrow(() -> new ObjectNotFoundException("Item Alugado ou Inexistente"));
+    }
+
     public List<ItemDTO> findAllByStatus(Boolean status){
         List<Item> itemList = itemRepository.findByStatus(status);
         return itemList.stream().map(item-> modelMapper.map(item, ItemDTO.class)).collect(Collectors.toList());

@@ -15,6 +15,10 @@ export class ItemService {
     return this.http.get<Item>(`${API_CONFIG.baseUrl}/itens/${id}`);
   }
 
+  findByIdAndDisponivel(id: any):Observable<Item>{
+    return this.http.get<Item>(`${API_CONFIG.baseUrl}/itens/disponivel/${id}`);
+  }
+
   findAll(ativo: Boolean){
     if(ativo){
       return this.http.get<Item[]>(`${API_CONFIG.baseUrl}/itens/?status=ativos`)

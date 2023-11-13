@@ -35,6 +35,14 @@ public class ItemController {
         return ResponseEntity.ok().body(itemService.findById(id));
     }
 
+    @GetMapping(value = "/disponivel/{id}")
+    @Operation(description = "Retorna o Item de acordo com ID", responses = {
+            @ApiResponse(responseCode = "200", description = "Caso o Item exista, esteja ativo e disponivel"),
+            @ApiResponse(responseCode = "404", description = "Caso o Item não exista e esteja inativo")})
+    public ResponseEntity<ItemDTO> findByIdDisponivel(@PathVariable Long id){
+        return ResponseEntity.ok().body(itemService.findByIdDisponivel(id));
+    }
+
     @GetMapping("/")
     @Operation (description="Retorna todos os Itens cadastrados que estão Ativos ou Inativos de acordo com o status.")
     public ResponseEntity<List<ItemDTO>> findAllByStatus(@RequestParam("status") String status) {

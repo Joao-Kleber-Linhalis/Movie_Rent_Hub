@@ -26,7 +26,7 @@ public class LocacaoDTO implements Serializable {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime dtLocacao = LocalDateTime.now();
+    private Date dtLocacao = new Date();
 
     private ItemDTO item;
 
