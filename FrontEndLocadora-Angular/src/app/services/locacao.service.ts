@@ -35,6 +35,10 @@ export class LocacaoService {
     return this.http.put<Locacao>(`${API_CONFIG.baseUrl}/locacoes/${locacao.id}`, locacao)
   }
 
+  devolution(locacao: Locacao): Observable<void> {
+    return this.http.put<void>(`${API_CONFIG.baseUrl}/locacoes/devolution/${locacao.id}`, locacao)
+  }
+
   delete(locacao: Locacao): Observable<void> {
     return this.http.delete<void>(`${API_CONFIG.baseUrl}/locacoes/${locacao.id}`)
   }

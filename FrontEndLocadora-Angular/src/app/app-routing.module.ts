@@ -35,10 +35,8 @@ import { LocacaoDeleteComponent } from './componets/locacao/locacao-delete/locac
 import { LocacaoListComponent } from './componets/locacao/locacao-list/locacao-list.component';
 import { LocacaoUpdateComponent } from './componets/locacao/locacao-update/locacao-update.component';
 import { LocacaoDevolucaoComponent } from './componets/locacao/locacao-devolucao/locacao-devolucao.component';
-import { LoginComponent } from './componets/login/login.component';
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
   { 
     path: '', component: NavComponent, children: [
       { path: 'home', component: HomeComponent },
@@ -83,7 +81,6 @@ const routes: Routes = [
       { path: 'locacoes/update/:id', component: LocacaoUpdateComponent },
       { path: 'locacoes/delete/:id', component: LocacaoDeleteComponent }, //Unica com delete
       { path: 'locacoes/devolucao/:id', component: LocacaoDevolucaoComponent },
-
     ]
   }
 ];
