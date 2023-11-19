@@ -28,7 +28,7 @@ export class LocacaoCreateComponent implements OnInit {
     cliente: null, //
     dependente: null, //
     item: null, //
-    dtLocacao: '', //
+    dtLocacao: this.moment().format('DD/MM/YYYY'), //
     dtDevolucaoPrevista: '', //
     dtDevolucaoEfetiva: null, //
     valorCobrado: null, //
@@ -43,10 +43,11 @@ export class LocacaoCreateComponent implements OnInit {
   dtLocacao = new FormControl(moment(), Validators.required);
   dtDevolucaoPrevista = new FormControl(null, Validators.required);
   valorCobrado = new FormControl(null, Validators.required);
+dependente: any;
 
   validarCampos(): boolean {
     return this.cliente.valid && this.item.valid && this.dtLocacao.valid
-      && this.dtDevolucaoPrevista.valid
+      && this.dtDevolucaoPrevista.valid && this.valorCobrado.valid
   }
 
   constructor(
@@ -116,6 +117,7 @@ export class LocacaoCreateComponent implements OnInit {
         (item) => {
           this.locacao.item = item;
           this.item.setValue(item);
+          this.valorCobrado.setValue(item.titulo.classe.valor);
           const prazoDevolucaoDias = item.titulo.classe.prazoDevolucao;
           // Use o moment para criar um objeto moment com a data de hoje.
           const dataHojeMoment = moment();

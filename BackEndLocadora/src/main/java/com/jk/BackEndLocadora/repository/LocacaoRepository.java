@@ -19,6 +19,6 @@ public interface LocacaoRepository extends JpaRepository<Locacao,Long> {
     List<Locacao> findAllByDtDevolucaoEfetivaIsNotNull();
 
     @Query("SELECT l FROM Locacao l WHERE l.cliente.id = :clienteId " +
-            "AND l.dtDevolucaoEfetiva IS NULL AND l.dtDevolucaoPrevista > CURRENT_DATE")
+            "AND l.dtDevolucaoEfetiva IS NULL AND l.dtDevolucaoPrevista < CURRENT_DATE")
     List<Locacao> findLocacoesEmAbertoByClienteId(Long clienteId);
 }

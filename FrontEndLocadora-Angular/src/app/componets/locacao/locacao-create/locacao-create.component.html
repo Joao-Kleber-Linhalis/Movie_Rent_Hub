@@ -12,27 +12,49 @@
         </mat-form-field>
         <mat-form-field class="fullWidth" appearance="outline">
             <mat-label>Dependente</mat-label>
-            <mat-select [(ngModel)]="locacao.dependente" name="dependente" >
+            <mat-select [(ngModel)]="locacao.dependente" name="dependente">
                 <!-- Adicionando a opção com valor nulo -->
                 <mat-option [value]="null">{{'Nenhum Dependente'}}</mat-option>
 
                 <!-- Iterando sobre os dependentes, mas verificando se locacao.cliente existe -->
                 <ng-container *ngIf="locacao.cliente && locacao.cliente.dependentes">
-                    <mat-option *ngFor="let dependente of locacao.cliente.dependentes" [value]="dependente">
-                        {{ dependente.nome }}
-                    </mat-option>
+                    <ng-container *ngFor="let dependente of locacao.cliente.dependentes">
+                        <!-- Filtrando dependentes com ativo = true -->
+                        <mat-option [value]="dependente" *ngIf="dependente.ativo">
+                            {{ dependente.nome }}
+                        </mat-option>
+                    </ng-container>
                 </ng-container>
             </mat-select>
             <mat-hint align="start">Deixe vazio se a locação for para o Sócio</mat-hint>
             <mat-icon matSuffix>supervisor_account</mat-icon>
         </mat-form-field>
-        <mat-form-field class="fullWidth" appearance="outline">
+        <mat-form-field class="fullWidth" style="margin-top: 10px" appearance="outline">
             <mat-label>ID Item</mat-label>
             <input matInput type="number" placeholder="Ex... 1" [(ngModel)]="itemId" name="itemId">
             <button matSuffix mat-icon-button (click)="pesquisarItem()">
                 <mat-icon>search</mat-icon>
             </button>
         </mat-form-field>
+        <mat-form-field class="fullWidth" appearance="outline">
+            <mat-label>Valor</mat-label>
+            <input matInput type="number" placeholder="Ex... 5" [(ngModel)]="locacao.valorCobrado" [formControl]="valorCobrado" name="valor">
+            <mat-icon matSuffix>money</mat-icon>
+        </mat-form-field>
+        <div class="info-fields-container fullWidth">
+            <!-- Campo de entrada desabilitado para mostrar o nome do diretor -->
+            <mat-form-field class="info-field fullWidth" appearance="outline">
+                <mat-label>Filme</mat-label>
+                <input matInput [disabled]="true" [value]="locacao.item ? locacao.item.titulo.nome : ''">
+                <mat-icon matSuffix>theaters</mat-icon>
+            </mat-form-field>
+            <!-- Campo de entrada desabilitado para mostrar o ano do título -->
+            <mat-form-field class="info-field fullWidth" appearance="outline">
+                <mat-label>Tipo do Item</mat-label>
+                <input matInput [disabled]="true" [value]="locacao.item ? locacao.item.tipoItem : ''">
+                <mat-icon matSuffix>info</mat-icon>
+            </mat-form-field>
+        </div>
         <mat-form-field class="fullWidth" appearance="outline">
             <mat-label>Data da Locação</mat-label>
             <input matInput [matDatepicker]="picker1" (dateInput)="onDateSelected($event, 'dtLocacao')"

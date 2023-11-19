@@ -51,13 +51,14 @@
             <ng-container matColumnDef="acoes">
                 <th mat-header-cell *matHeaderCellDef> Ações </th>
                 <td mat-cell *matCellDef="let element">
-                    <a routerLink="update/{{element.id}}" *ngIf="element.ativo">
+                    <a routerLink="update/{{element.id}}">
                         <i class="material-icons edit">edit</i>
                     </a>
-                    <a routerLink="status/{{element.id}}">
-                        <i class="material-icons" [ngClass]="{'delete': element.ativo, 'done': !element.ativo}">
-                            {{ element.ativo ? 'delete' : 'done' }}
-                        </i>
+                    <a routerLink="delete/{{element.id}}">
+                        <i class="material-icons delete">delete</i>
+                    </a>
+                    <a *ngIf="element.dtDevolucaoEfetiva === null" routerLink="devolucao/{{element.id}}">
+                        <i class="material-icons done">done</i>
                     </a>
                 </td>
             </ng-container>

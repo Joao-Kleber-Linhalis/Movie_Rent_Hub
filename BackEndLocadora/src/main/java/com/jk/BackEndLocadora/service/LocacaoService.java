@@ -78,10 +78,10 @@ public class LocacaoService {
         locacaoDTO.setId(id);
         LocacaoDTO oldLocacao = findById(id);
         Locacao locacao = null;
-        if (locacaoDTO.getCliente().getId() != oldLocacao.getCliente().getId()){
+        if (locacaoDTO.getCliente().getId() != oldLocacao.getCliente().getId()  && locacaoDTO.getDtDevolucaoEfetiva() == null){
             verifyClienteWithoutLocacaoEmAtraso(locacaoDTO.getCliente().getId());
         }
-        if (locacaoDTO.getItem().getId() != oldLocacao.getItem().getId()){
+        if (locacaoDTO.getItem().getId() != oldLocacao.getItem().getId() && locacaoDTO.getDtDevolucaoEfetiva() == null){
             ItemDTO itemDTO = verifyAndRentItem(locacaoDTO.getItem().getId());
             ItemDTO OldItemDTO = itemService.findById(oldLocacao.getItem().getId());
             itemDTO.setStatusItem(StatusItem.ALUGADO);
@@ -94,6 +94,15 @@ public class LocacaoService {
             locacao = locacaoRepository.save(modelMapper.map(locacaoDTO, Locacao.class));
         }
         return modelMapper.map(locacao,LocacaoDTO.class);
+    }
+
+    public void devolution(Long id, LocacaoDTO locacaoDTO){
+        locacaoDTO.setId(id);
+        ItemDTO itemDTO = itemService.findById(locacaoDTO.getItem().getId());
+        locacaoRepository.save(modelMapper.map(locacaoDTO, Locacao.class));
+        itemDTO.setStatusItem(StatusItem.DISPONIVEL);
+        itemService.update(itemDTO.getId(),itemDTO);
+        return;
     }
 
     public void delete(Long id){

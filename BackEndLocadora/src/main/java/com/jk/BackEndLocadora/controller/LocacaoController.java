@@ -60,8 +60,8 @@ public class LocacaoController {
     }
 
     @PutMapping(value = "/{id}")
-    @Operation(description = "Cadastra uma nova Locação", responses = {
-            @ApiResponse(responseCode = "200", description = "Caso a Locação seja criada"),
+    @Operation(description = "Atualiza uma nova Locação", responses = {
+            @ApiResponse(responseCode = "200", description = "Caso a Locação seja Atualiza"),
             @ApiResponse(responseCode = "442", description = "Caso o Cliente possua Locação em atraso"),
             @ApiResponse(responseCode = "404", description = "Caso algum erro não permita o cadastro")})
     public ResponseEntity<LocacaoDTO> update(@PathVariable Long id, @Valid @RequestBody LocacaoDTO locacaoDTO){
@@ -74,6 +74,14 @@ public class LocacaoController {
             @ApiResponse(responseCode = "404", description = "Caso a Locação não exista")})
     public ResponseEntity<Void> delete(@PathVariable Long id){
         locacaoService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping(value = "/devolution/{id}")
+    @Operation(description = "Devolve uma nova Locação", responses = {
+            @ApiResponse(responseCode = "200", description = "Caso a Locação seja devolvida")})
+    public ResponseEntity<Void> devolution(@PathVariable Long id, @Valid @RequestBody LocacaoDTO locacaoDTO){
+        locacaoService.devolution(id,locacaoDTO);
         return ResponseEntity.ok().build();
     }
 }

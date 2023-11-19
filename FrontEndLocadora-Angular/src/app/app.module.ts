@@ -68,6 +68,12 @@ import { LocacaoCreateComponent } from './componets/locacao/locacao-create/locac
 import { LocacaoUpdateComponent } from './componets/locacao/locacao-update/locacao-update.component';
 import { LocacaoListComponent } from './componets/locacao/locacao-list/locacao-list.component';
 import { LocacaoDeleteComponent } from './componets/locacao/locacao-delete/locacao-delete.component';
+import { LocacaoDevolucaoComponent } from './componets/locacao/locacao-devolucao/locacao-devolucao.component';
+import { UsuarioListComponent } from './componets/usuario/usuario-list/usuario-list.component';
+import { UsuarioCreateComponent } from './componets/usuario/usuario-create/usuario-create.component';
+import { UsuarioDeleteComponent } from './componets/usuario/usuario-delete/usuario-delete.component';
+import { UsuarioUpdateComponent } from './componets/usuario/usuario-update/usuario-update.component';
+import { LoginComponent } from './componets/login/login.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +111,13 @@ import { LocacaoDeleteComponent } from './componets/locacao/locacao-delete/locac
     LocacaoCreateComponent,
     LocacaoUpdateComponent,
     LocacaoListComponent,
-    LocacaoDeleteComponent
+    LocacaoDeleteComponent,
+    LocacaoDevolucaoComponent,
+    UsuarioListComponent,
+    UsuarioCreateComponent,
+    UsuarioDeleteComponent,
+    UsuarioUpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
