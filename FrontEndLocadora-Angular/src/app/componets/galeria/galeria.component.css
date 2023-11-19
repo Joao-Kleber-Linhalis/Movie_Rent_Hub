@@ -1,0 +1,125 @@
+body {
+    background: linear-gradient(90deg, rgba(101,92,255,1) 0%, rgba(0,212,255,1) 100%);
+    background-color: #3d3d3d;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Lato';
+}
+
+.wrapper {
+    background: linear-gradient(90deg, rgba(101,92,255,1) 0%, rgba(0,212,255,1) 100%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card {
+    flex: 0 0 16.66%; /* maxWidth de 16.66% */
+    margin: 10px;
+    padding: 8px; /* Padding de 8px para todos os lados */
+    background: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, .5);
+    cursor: pointer;
+    transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+    overflow: hidden;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+}
+
+.descriptions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .7);
+    width: 100%;
+    height: 100%;
+    transition: all .7s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    clip-path: circle(0% at 100% 100%);
+}
+
+.card:hover .descriptions {
+    left: 0;
+    transition: all .7s ease-in-out;
+    clip-path: circle(75%);
+}
+
+.card:hover {
+    transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
+    transform: scale(.97);
+}
+
+.card:hover img {
+    transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+    transform: scale(1.6) rotate(20deg);
+}
+
+.card h1 {
+    color: #ff3838;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.card p {
+    line-height: 24px;
+    height: 70%;
+}
+
+.card button {
+    width: fit-content;
+    height: 40px;
+    cursor: pointer;
+    border-style: none;
+    background-color: #ff3838;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
+    transition: all .5s ease-in-out;
+}
+
+.card button:hover {
+    transform: scale(.95) translateX(-5px);
+    transition: all .5s ease-in-out;
+}
+
+nav {
+    align-items: end;
+    background: linear-gradient(90deg, rgba(101,92,255,1) 0%, rgba(0,212,255,1) 100%);
+    padding: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  a:hover {
+    color: black;
+  }

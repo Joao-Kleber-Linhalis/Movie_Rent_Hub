@@ -40,6 +40,7 @@ export class AtorListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
     this.ativoChangeSubject.subscribe(() => {
       this.findAll();
     });

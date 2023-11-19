@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,12 +11,16 @@ import { ToastrService } from 'ngx-toastr';
 export class NavComponent implements OnInit {
 
   constructor(private router: Router,
-    //private authService: AuthService,
+    private loginService: LoginService,
     private toast: ToastrService) {
+    if (localStorage.getItem('usuario') == null) {
+      console.log(localStorage.getItem('usuario'));
+      this.router.navigate(['/galeria']);
+    }
   }
 
   ngOnInit(): void {
-    this.router.navigate(['locacoes'])
+    this.router.navigate(['home'])
   }
 
   isMenuOpen: boolean = false;
@@ -40,8 +45,8 @@ export class NavComponent implements OnInit {
 
   logout() {
     this.router.navigate(['login']);
-    //this.authService.logout();
-    this.toast.info("Logout realizado com sucesso","Logout",{timeOut:7000})
-}
+    this.loginService.logout();
+    this.toast.info("Logout realizado com sucesso", "Logout", { timeOut: 7000 })
+  }
 
 }

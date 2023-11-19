@@ -69,6 +69,14 @@ import { LocacaoUpdateComponent } from './componets/locacao/locacao-update/locac
 import { LocacaoListComponent } from './componets/locacao/locacao-list/locacao-list.component';
 import { LocacaoDeleteComponent } from './componets/locacao/locacao-delete/locacao-delete.component';
 import { LocacaoDevolucaoComponent } from './componets/locacao/locacao-devolucao/locacao-devolucao.component';
+import { UsuarioCreateComponent } from './componets/usuario/usuario-create/usuario-create.component';
+import { UsuarioDeleteComponent } from './componets/usuario/usuario-delete/usuario-delete.component';
+import { UsuarioUpdateComponent } from './componets/usuario/usuario-update/usuario-update.component';
+import { UsuarioListComponent } from './componets/usuario/usuario-list/usuario-list.component';
+import { LoginComponent } from './componets/login/login.component';
+import { GaleriaComponent } from './componets/galeria/galeria.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -108,6 +116,12 @@ import { LocacaoDevolucaoComponent } from './componets/locacao/locacao-devolucao
     LocacaoListComponent,
     LocacaoDeleteComponent,
     LocacaoDevolucaoComponent,
+    UsuarioCreateComponent,
+    UsuarioDeleteComponent,
+    UsuarioUpdateComponent,
+    UsuarioListComponent,
+    LoginComponent,
+    GaleriaComponent,
   ],
   imports: [
     BrowserModule,
@@ -135,6 +149,7 @@ import { LocacaoDevolucaoComponent } from './componets/locacao/locacao-devolucao
     MatCardModule,
     MatDatepickerModule, 
     MatMomentDateModule,
+    MatGridListModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,

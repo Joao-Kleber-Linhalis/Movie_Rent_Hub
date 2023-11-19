@@ -1,0 +1,18 @@
+<body>
+    <nav>
+        <ul>
+            <li><a routerLink="/login">Login</a></li>
+            <li><a routerLink="/galeria">Galeria</a></li>
+        </ul>
+    </nav>
+    
+    <div class="wrapper">
+        <div *ngFor="let titulo of tituloList" class="card">
+            <img [src]="titulo.capa || 'assets/img/default-cover.png'" alt="{{ titulo.nome }}">
+            <div class="descriptions">
+                <h1>{{ titulo.nome }}</h1>
+                <p>{{ titulo.sinopse }}</p>
+            </div>
+        </div>
+    </div>
+</body>

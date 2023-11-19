@@ -35,8 +35,12 @@ import { LocacaoDeleteComponent } from './componets/locacao/locacao-delete/locac
 import { LocacaoListComponent } from './componets/locacao/locacao-list/locacao-list.component';
 import { LocacaoUpdateComponent } from './componets/locacao/locacao-update/locacao-update.component';
 import { LocacaoDevolucaoComponent } from './componets/locacao/locacao-devolucao/locacao-devolucao.component';
+import { LoginComponent } from './componets/login/login.component';
+import { GaleriaComponent } from './componets/galeria/galeria.component';
 
 const routes: Routes = [
+  {path: 'galeria', component: GaleriaComponent},
+  { path: 'login', component: LoginComponent },
   { 
     path: '', component: NavComponent, children: [
       { path: 'home', component: HomeComponent },
